@@ -1,0 +1,16 @@
+@import "../theme.scss";
+@import "../main.scss";
+
+.Navigation {
+    display: flex;
+    height: $NavigationHeight;
+    background: $primaryColor;
+    color: #fff;
+    a {
+        flex: 1;
+        border-right: 1px solid #ffffff;
+        &:last-child {
+            border: none;
+        }
+    }
+}
