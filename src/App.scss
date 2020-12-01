@@ -1,9 +1,12 @@
+@import "./theme.scss";
+
 .App {
   text-align: center;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  color: $fontPrimaryColor;
 }
 
 .ScrollContainer {

@@ -1,0 +1,29 @@
+.storeCard {
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0 1em 1em 1em;
+    text-align: left;
+    box-shadow: 0px 0px 2px 0px #d0d0d0;
+    .storeImage {
+        height: 10em;
+        background: #d0d0d0;
+    }
+    .detail {
+        background: #ffffff;
+        padding: 1em;
+        > div {
+            margin-bottom: 5px;
+        }
+        .storeName {
+            font-weight: bold;
+        }
+        .storeType {
+        }
+        .storeName {
+            
+        }
+        .storeName {
+            
+        }
+    }
+}

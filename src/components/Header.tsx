@@ -5,7 +5,9 @@ export default class Header extends React.Component {
     render() {
       return (
         <div className="Header">
-          LivDirect
+          <span>QR</span>
+          <input type="text" placeholder="Search by products or stores"/>
+          <span>Cart</span>
         </div>
       );
     }

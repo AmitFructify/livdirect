@@ -15,7 +15,7 @@ const appSlice = createSlice({
   initialState,
   reducers: {
     setUserInfo: (state, action: PayloadAction<typeof initialState>) => {
-      return  action.payload;
+      return action.payload;
     }
   },
 });

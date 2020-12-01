@@ -1,0 +1,13 @@
+.storeFilter {
+    overflow-x: auto;
+    display: flex;
+    margin-top: 0.8em;
+    padding-bottom: 0.8em;
+    .pill {
+        padding: 0.5em 1em;
+        border: 1px solid #dcdcdc;
+        white-space: nowrap;
+        border-radius: 4px;
+        margin: 0 0.5em;
+    }
+}
