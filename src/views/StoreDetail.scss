@@ -82,10 +82,14 @@
     .storeProducts {
         background: #f4f4f4;
         .heading {
-            padding: 1em;
+            padding: 0 1em;
             font-weight: bold;
             text-align: left;
             font-size: 1.1em;
+            display: flex;
+            height: 3em;
+            align-items: center;
+            justify-content: space-between;
         }
         .productList{
             display: flex;

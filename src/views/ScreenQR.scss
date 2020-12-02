@@ -1,0 +1,11 @@
+.qrScreenWrapper {
+    height: 100vh;
+    width: 100vw;
+    .cameraClose {
+        position: absolute;
+        left: 0.6em;
+        top: 0.6em;
+        background: #ffffff;
+        z-index: 1;
+    }
+}

@@ -13,16 +13,18 @@ export default function Catalogue () {
   const [isOpen, setScheduleState] = useState(false);
   const history = useHistory();
 
-  let handleBackClick= () => history.push("/catalogue/stores");
+  let handleBackClick = () => history.push("/catalogue/stores");
   let openSchedule = () => setScheduleState(true);
   let closeSchedule = () => setScheduleState(false);
  
+  let handleQRClick = () => history.push("/qrscreen");
+
   return (
     <div className="storeDetail">
       <div className="header">
         <Button className="secondary" type="icon" clickHandler={handleBackClick}><Icon type="back"/></Button>
         <div>
-          <Button className="secondary cartButton" type="icon"><Icon type="qr"/></Button>
+          <Button className="secondary cartButton" type="icon" clickHandler={handleQRClick}><Icon type="qr"/></Button>
           <Button className="secondary" type="icon"><Icon type="cart"/></Button>
         </div>
       </div>
@@ -49,7 +51,10 @@ export default function Catalogue () {
 
         </div>
         <div className="storeProducts">
-            <div className="heading">Products</div>
+            <div className="heading">
+              <span>Products</span>
+              <Button className="transparent" type="icon"><Icon type="search"/></Button>
+            </div>
             <div className="productList">
               <ProductCard />
               <ProductCard />
@@ -60,7 +65,7 @@ export default function Catalogue () {
       </div>
 
       <div className="detailFooter">
-        <Button className="primary" clickHandler={openSchedule}>Schedule</Button>
+        <Button className="primary" clickHandler={openSchedule}>Schedule Appointment</Button>
       </div>
 
       <Schedule isOpen={isOpen} closeHandler={closeSchedule}/>

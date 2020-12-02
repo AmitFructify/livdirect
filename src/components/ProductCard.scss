@@ -7,7 +7,7 @@
     box-shadow: 0px 0px 2px 0px #d0d0d0;
 
     &:hover, &:focus {
-        border: 1px solid $primaryColor; 
+        outline: 1px solid $primaryColor; 
     }
 
     .productImage {

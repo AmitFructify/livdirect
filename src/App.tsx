@@ -8,6 +8,7 @@ import {
 } from './store/appReducer';
 import Catalogue from "./views/Catalogue";
 import StoreDetail from "./views/StoreDetail";
+import ScreenQR from "./views/ScreenQR";
 
 const Home = () => (
   <div>
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/"><Home />{ useSelector(selectUserName) } <button onClick={() => dispatch(setUserInfo({userId: "12", userName: "Parmar"})) }></button></Route>
           <Route path="/catalogue"><Catalogue /></Route>
           <Route path="/profile"><StoreDetail /></Route>
+          <Route path="/qrscreen"><ScreenQR /></Route>
         </Switch>
       </div>
     </div>
