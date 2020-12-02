@@ -1,0 +1,28 @@
+@import "../theme.scss";
+
+.btn {
+    padding: 0.7em 1em;
+    background: #dad7d8;
+    border: none;
+    border-radius: 4px;
+
+    &.icon {
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+        padding: 0;
+    }
+
+    &.transparent {
+        background: transparent;
+    }
+
+    &.primary {
+        background: $primaryColor;
+        color: #ffffff;
+    }
+
+    &:active {
+        outline: 1px solid $primaryColor;
+    }
+}

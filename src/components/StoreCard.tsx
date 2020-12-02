@@ -1,22 +1,30 @@
-import React from 'react';
-import { Switch } from 'react-router-dom';
+import React, { ReactEventHandler } from 'react';
+import { useHistory } from 'react-router-dom';
 import "./StoreCard.scss";
+
+import Button from "./Button";
+import Icon from "./Icon";
  
 function StoreCard() {
-  const greeting = 'Hello Function Component!';
+  const history = useHistory();
+
+  let handleClick= () => history.push("/profile");
+
+  let storeActionClick = () => {
+    alert(1);
+  };
  
   return (
-    <div className="storeCard">
+    <div className="storeCard" onClick={handleClick}>
       <div className="storeImage">
-        Image
       </div>
       <div className="detail">
         <div className="storeName">Store Name</div>
         <div className="storeType">Store Type</div>
         <div className="rating">Ratings</div>
         <div className="actions">
-          <button>wish</button>
-          <button>share</button>
+          <Button className="transparent" type="icon" clickHandler={storeActionClick}><Icon type="like"/></Button>
+          <Button className="transparent" type="icon" clickHandler={storeActionClick}><Icon type="share"/></Button>
         </div>
       </div>
     </div>

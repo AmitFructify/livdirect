@@ -6,10 +6,8 @@ import {
   setUserInfo,
   selectUserName
 } from './store/appReducer';
-
-import Header from "./components/Header";
-import Nav from "./components/Nav";
 import Catalogue from "./views/Catalogue";
+import StoreDetail from "./views/StoreDetail";
 
 const Home = () => (
   <div>
@@ -22,14 +20,13 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
       <div className="ScrollContainer">
         <Switch>
           <Route exact path="/"><Home />{ useSelector(selectUserName) } <button onClick={() => dispatch(setUserInfo({userId: "12", userName: "Parmar"})) }></button></Route>
           <Route path="/catalogue"><Catalogue /></Route>
+          <Route path="/profile"><StoreDetail /></Route>
         </Switch>
       </div>
-      <Nav/>
     </div>
   );
 }

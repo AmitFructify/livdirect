@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from './Icon';
 import "./StoreFilter.scss";
  
 function StoreFilter() {
@@ -6,6 +7,7 @@ function StoreFilter() {
   return (
     <div className="storeFilter">
       <div className="pill popup">
+        <Icon type="filter"/>
         Filters
       </div>
       <div className="pill">
@@ -15,7 +17,7 @@ function StoreFilter() {
         Sample Delivery
       </div>
       <div className="pill">
-        Virtual Assistance
+        Virtual Assist
       </div>
     </div>
   );

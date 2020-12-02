@@ -2,12 +2,18 @@
     overflow-x: auto;
     display: flex;
     margin-top: 0.8em;
-    padding-bottom: 0.8em;
+    padding: 0 2em 0.8em 1em;
     .pill {
-        padding: 0.5em 1em;
+        padding: 0 1em;
         border: 1px solid #dcdcdc;
         white-space: nowrap;
         border-radius: 4px;
         margin: 0 0.5em;
+        display: flex;
+        height: 2.5em;
+        align-items: center;
+        .icon {
+            margin-right: 0.4em;
+        }
     }
 }
