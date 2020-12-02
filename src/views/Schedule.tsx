@@ -23,7 +23,7 @@ const Schedule: React.FC<IScheduleProps> = (props: IScheduleProps) => {
       </div>
       <div className="scheduleForm">
         <div className="formHead">
-          <Button className="transparent" type="icon"><Icon type="close"/></Button>
+          <Button className="transparent" type="icon" clickHandler={props.closeHandler}><Icon type="close"/></Button>
           <span>Schedule Appointment</span>
         </div>
 

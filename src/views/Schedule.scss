@@ -10,13 +10,14 @@
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease-in-out;
+    background: transparent;
     &.open {
         top:0;
+        background: #00000059;
     }
 
     .transHead {
         height: 6vh;
-        background: #00000059;
         position: relative;
         span {
             width: 3em;

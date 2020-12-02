@@ -9,6 +9,7 @@ import {
 import Catalogue from "./views/Catalogue";
 import StoreDetail from "./views/StoreDetail";
 import ScreenQR from "./views/ScreenQR";
+import Cart from "./views/Cart";
 
 const Home = () => (
   <div>
@@ -28,6 +29,7 @@ function App() {
           <Route path="/profile"><StoreDetail /></Route>
           <Route path="/qrscreen"><ScreenQR /></Route>
         </Switch>
+        <Cart isOpen={false}/>
       </div>
     </div>
   );
