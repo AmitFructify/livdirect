@@ -33,7 +33,7 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
   });
 
   const storeItems = useSelector(storeList).map((store: any) =>
-    <StoreCard key={store.id}/>
+    <StoreCard store={store} key={store.id}/>
   );
 
   const toggleFilterPopup = () => setFilterState(!isFilterOpen);
@@ -60,7 +60,20 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
       </div>
 
       <Switch>
-        <Route path={`/catalogue/stores`}>
+        <Route exact path={`/project`}>
+          <div style={{flex:1}}><h3>Project</h3></div>
+        </Route>
+        <Route exact path={`/referrals`}>
+          <div style={{flex:1}}><h3>Refferals</h3></div>
+        </Route>
+        <Route exact path={`/alerts`}>
+          <div style={{flex:1}}><h3>Alerts</h3></div>
+        </Route>
+        <Route exact path={`/profile`}>
+          <div style={{flex:1}}><h3>Profile</h3></div>
+        </Route>
+
+        <Route exact path={`/catalogue/stores`}>
           <div className="storeListWrapper">
             <StoreFilter clickHandler={toggleFilterPopup}/>
             <div className={`filterList ${isFilterOpen? "open" : ""}`}>

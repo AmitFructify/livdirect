@@ -8,10 +8,9 @@ import Icon from "./Icon";
 function StoreCard() {
   const history = useHistory();
 
-  let handleClick = () => history.push("/profile");
  
   return (
-    <div className="productCard" onClick={handleClick}>
+    <div className="productCard">
       <div className="productImage">
       </div>
       <div className="detail">

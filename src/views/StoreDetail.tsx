@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './StoreDetail.scss';
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import ProductCard from "../components/ProductCard";
 import Button from "../components/Button";

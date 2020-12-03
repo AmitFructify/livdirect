@@ -8,7 +8,7 @@ import Icon from "./Icon";
 function CartCard() {
   const history = useHistory();
 
-  let handleClick = () => history.push("/profile");
+  let handleClick = () => history.push("/storedetail");
  
   return (
     <div className="cartCard">
