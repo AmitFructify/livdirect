@@ -1,0 +1,157 @@
+@import "../theme.scss";
+
+.checkoutWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    .checkoutHeader {
+        height: 7vh;
+        z-index: 1;
+        box-shadow: 0px 0px 4px 0px #d0d0d0;
+        display: flex;
+        align-items: center;
+        padding: 0 1em;
+        .btn {margin-right: 1em;}
+        span {
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+    }
+    .checkoutScroll {
+        flex: 1;
+        padding: 1em;
+        background: #f4f4f4;
+        overflow-y: auto;
+        .heading {
+            font-weight: bold;
+            text-align: left;
+            font-size: 1.1em;
+            display: flex;
+            height: 3em;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .content {
+            box-shadow: 0px 0px 2px 0px #d0d0d0;
+            border-radius: 6px;
+            background: #ffffff;
+            margin-bottom: 0.5em;
+        }
+    }
+    .checkoutFooter {
+        height: 8vh;
+        z-index: 1;
+        box-shadow: 0px 0px 4px 0px #d0d0d0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1em;
+        .amount {
+            font-size: 1.1em;
+            text-align: left;
+            margin-bottom: 0.3em;
+            font-weight: 600;
+        }
+        .priceDetailLink {
+            color: $primaryColor;
+        }
+    }
+}
+
+.content {
+    &.address {
+        padding: 1em;
+        text-align: left;
+        .name {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+    }
+    .cartCard {
+        padding: 1em;
+        margin-bottom: 0;
+    }
+
+    &.pricingTable {
+        padding: 1em;
+        font-size: 1.1em;
+        > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1em;
+            &.payable {
+                padding-bottom: 0;
+                font-weight: 600;
+                padding-top: 1em;
+                border-top: 1px solid #ebebeb;
+            }
+        }
+    }
+    
+    &.discount {
+        background: #44a058 !important;
+        color: #ffffff;
+        padding: 1em;
+        font-size: 1.1em;
+        .head {
+            font-weight: 600;
+            margin-bottom: 0.7em;
+            font-size: 1.1em;
+        }
+        p {margin: 0;margin-bottom: 0.1em;}
+    }
+
+    &.payment {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8em 1em 1em;
+        font-size: 1.1em;
+
+        .paymentOption{
+            display: flex;
+            align-items: center;
+            input[type="radio"] {
+                opacity: 0;
+                height: 18px;
+                width: 18px;
+                margin-right: 8px;
+                + label{
+                    position: relative;
+                    margin-right: auto;
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        height: 18px;
+                        width: 18px;
+                        left: -27px;
+                        border-radius: 10px;
+                        border: 1px solid;
+                    }
+                }
+
+                &:checked + label{
+                    &::before {
+                        border: none;
+                        background: $primaryColor;
+                        height: 20px;
+                        width: 20px;
+                    }
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        height: 10px;
+                        width: 10px;
+                        left: -22px;
+                        border-radius: 10px;
+                        background: #ffffff;
+                        top: 5px;
+                    }
+                }
+            }
+        }
+        .price { font-weight: 600;}
+    }
+}

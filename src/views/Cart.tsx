@@ -1,6 +1,8 @@
 import React from 'react';
 import "./Cart.scss";
 
+import { useHistory } from 'react-router-dom';
+
 import Button from "../components/Button";
 import Icon from "../components/Icon";
 import CartCard from "../components/CartCard";
@@ -11,9 +13,12 @@ interface ICartProps{
 };
 
 const Cart: React.FC<ICartProps> = (props: ICartProps) => {
+  const history = useHistory();
+  const goToCheckout = () => history.push("/checkout");
 
   const checkout = () => {
     props.closeHandler();
+    history.push("/checkout");
   };
 
   return(

@@ -30,6 +30,12 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
     console.error(err)
   }
 
+  const closeProductPop = () => {
+    setResult(null);
+    setProductPopup(false);
+  };
+
+
   return(
     <div className="qrScreenWrapper">
       <Button className="secondary cameraClose" type="icon" clickHandler={history.goBack}><Icon type="close"/></Button>
@@ -47,8 +53,8 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
       <div className={`productScan ${productPopup? "open":""}`}>
         <div className="head">
           <div>
-            <Button className="transparent" type="icon" clickHandler={() => setProductPopup(false)}><Icon type="close"/></Button>
-            <span>Shopping Cart</span>
+            <Button className="transparent" type="icon" clickHandler={closeProductPop}><Icon type="close"/></Button>
+            <span>Product Detail</span>
           </div>
         </div>
 

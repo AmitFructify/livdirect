@@ -10,6 +10,7 @@ import Catalogue from "./views/Catalogue";
 import StoreDetail from "./views/StoreDetail";
 import ScreenQR from "./views/ScreenQR";
 import Cart from "./views/Cart";
+import Checkout from "./views/Checkout";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/profile"><Catalogue /></Route>
           <Route path="/storedetail/:id"><StoreDetail /></Route>
           <Route path="/qrscreen"><ScreenQR /></Route>
+          <Route path="/checkout"><Checkout /></Route>
         </Switch>
         <Cart isOpen={useSelector(isCartOpen)} closeHandler={updateCartState}/>
       </div>

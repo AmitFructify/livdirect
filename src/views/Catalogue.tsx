@@ -24,7 +24,7 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
   const changeListMode = () => {
     setListMode(!isListMode);
   }
-  const clickQR = () => history.push("/qrscreen")
+  const clickQR = () => history.push("/qrscreen");
 
   const dispatch = useDispatch();
 
