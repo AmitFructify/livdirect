@@ -11,13 +11,19 @@ interface IStoreFliterProps {
 }
  
 const StoreFilter: React.FC<IStoreFliterProps> = (props: IStoreFliterProps) => {
+  const dispatch = useDispatch();
 
   const filterList = [...useSelector(filters)];
+
+  const removeFilter = (filterName: string) => {
+    filterList.splice(filterList.indexOf(filterName),1);
+    dispatch(setFilters(filterList));
+  };
 
   const filterItems = filterList.map((item: any) =>
     <div className="pill" key={item}>
       {item}
-    <Button className="transparent" type="icon"><Icon type="close"/></Button>
+    <Button className="transparent" type="icon" clickHandler={() => removeFilter(item)}><Icon type="close"/></Button>
   </div>
   );
 

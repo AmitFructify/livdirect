@@ -41,7 +41,7 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
       <Button className="secondary cameraClose" type="icon" clickHandler={history.goBack}><Icon type="close"/></Button>
       <QrReader
         delay={delay}
-        style={{height: "100%", width:"100%"}}
+        style={{height: "100vh", width:"100vw"}}
         onError={handleError}
         onScan={handleScan}
         />
