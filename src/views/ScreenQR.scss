@@ -1,6 +1,7 @@
 .qrScreenWrapper {
     height: 100vh;
     width: 100vw;
+    overflow-y: hidden;
     .cameraClose {
         position: absolute;
         left: 0.6em;
@@ -11,26 +12,69 @@
 
     .overlay {
         background: transparent;
-        border: 20em solid #00000047;
         position: absolute;
-        width: 22.3em;
-        height: 22.3em;
+        width: 72vw;
+        height: 42vh;
         top: 0;
         left: 0;
-        transform: translate(-17.05em, -9.8em);
-    }
-    .scanBox {
-        position: absolute;
-        height: 22em;
-        width: 22em;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 15%;
-        margin: auto;
-        border: 2px solid #ffffff;
-        &.success {
+        border-color: #00000047;
+        border-width: 16vh 14vw 42vh 14vw;
+        border-style: solid;
+        > div {
+            border: 2px solid #ffffff;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        &.success > div {
             border: 2px solid #0dd200;
+        }
+    }
+
+    .productScan {
+        position: absolute;
+        background: #ffffff;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        width: 100vw;
+        bottom: -25em;
+        transition: all 0.3s ease-in-out;
+        &.open{
+            bottom: 0px;
+        }
+
+        .head {
+            border-bottom: 1px solid #ebebeb;
+            display: flex;
+            padding: 0.9em;
+            align-items: center;
+            justify-content: space-between;
+            .btn {
+                margin-right: 1em;
+            }
+            span {
+                font-size: 1.4em;
+                font-weight: 600;
+            }
+        }
+        .scroll {
+            flex:1;
+            overflow-y: auto;
+            padding: 1em;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            padding: 2%;
+            height: 7vh;
+            border-top: 1px solid #ebebeb;
+            .btn {
+                flex: 1;
+                margin: 1%;
+                font-size: 1.1em;
+                font-weight: 600;
+            }
         }
     }
 }

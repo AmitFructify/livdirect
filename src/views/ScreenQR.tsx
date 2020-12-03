@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 import Button from "../components/Button";
 import Icon from "../components/Icon";
+import CartCard from "../components/CartCard";
 
 interface IScreenQRProps{
   url?: string;
@@ -13,6 +14,7 @@ interface IScreenQRProps{
 
 const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
   const [result, setResult] = useState(null);
+  const [productPopup, setProductPopup] = useState(false);
   const [delay] = useState(600);
 
   const history = useHistory();
@@ -20,7 +22,7 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
   const handleScan = (data: any) => {
     if (data) {
       setResult(data);
-      history.goBack();
+      setProductPopup(true);
     }
   }
 
@@ -38,8 +40,26 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
         onScan={handleScan}
         />
       <p>{result}</p>
-      <div className="overlay"></div>
-      <div className={`scanBox ${result?"success":""}`}></div>
+      <div className={`overlay ${result?"success":""}`}>
+        <div></div>
+      </div>
+
+      <div className={`productScan ${productPopup? "open":""}`}>
+        <div className="head">
+          <div>
+            <Button className="transparent" type="icon" clickHandler={() => setProductPopup(false)}><Icon type="close"/></Button>
+            <span>Shopping Cart</span>
+          </div>
+        </div>
+
+        <div className="scroll">
+          <CartCard/>
+        </div>
+
+        <div className="footer">
+          <Button className="primary" clickHandler={history.goBack}>Add to Cart</Button>
+        </div>
+      </div>
     </div>
   );
 };
