@@ -7,6 +7,10 @@ import Button from "../components/Button";
 import Icon from "../components/Icon";
 
 import Schedule from "./Schedule";
+import { useDispatch } from 'react-redux';
+import {
+  setCartState
+} from '../store/appReducer';
 
 export default function Catalogue () {
 
@@ -19,13 +23,18 @@ export default function Catalogue () {
  
   let handleQRClick = () => history.push("/qrscreen");
 
+  const dispatch = useDispatch();
+  const updateCartState = () => {
+    dispatch(setCartState({isCartOpen: true}));
+  }
+
   return (
     <div className="storeDetail">
       <div className="header">
         <Button className="secondary" type="icon" clickHandler={handleBackClick}><Icon type="back"/></Button>
         <div>
           <Button className="secondary cartButton" type="icon" clickHandler={handleQRClick}><Icon type="qr"/></Button>
-          <Button className="secondary" type="icon"><Icon type="cart"/></Button>
+          <Button className="secondary" type="icon" clickHandler={updateCartState}><Icon type="cart"/></Button>
         </div>
       </div>
       <div className="storeDetailContainer">

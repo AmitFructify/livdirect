@@ -1,27 +1,26 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface AppState {
-  userId: string,
-  userName: string
+  isCartOpen: boolean;
 }
   
-const initialState: AppState = { 
-  userId: "",
-  userName: "Amit"
+const initialState: AppState = {
+  isCartOpen: false
 }
   
 const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    setUserInfo: (state, action: PayloadAction<typeof initialState>) => {
-      return action.payload;
+    setCartState: (state, action: PayloadAction<any>) => {
+      state.isCartOpen = action.payload.isCartOpen;
+      return state;
     }
   },
 });
 
-export const selectUserName = (state: any) => state.app.userName
+export const isCartOpen = (state: any) => state.app.isCartOpen;
 
-export const { setUserInfo } = appSlice.actions;
+export const { setCartState } = appSlice.actions;
 
 export default appSlice.reducer;

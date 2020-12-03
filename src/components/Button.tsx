@@ -2,10 +2,10 @@ import React from 'react';
 import "./Button.scss";
 
 interface IButtonProps{
-  className: string,
-  type?: "icon"
-  clickHandler?: () => void,
-  children?: any
+  className: string;
+  type?: "icon";
+  clickHandler?:() => void;
+  children?: any;
 }
 
 const Button: React.FC<IButtonProps> = (props: IButtonProps) => {

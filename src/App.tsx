@@ -3,8 +3,8 @@ import './App.scss';
 import { Route, Switch } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  setUserInfo,
-  selectUserName
+  setCartState,
+  isCartOpen
 } from './store/appReducer';
 import Catalogue from "./views/Catalogue";
 import StoreDetail from "./views/StoreDetail";
@@ -19,17 +19,20 @@ const Home = () => (
 
 function App() {
   const dispatch = useDispatch();
+  const updateCartState = () => {
+    dispatch(setCartState({isCartOpen: false}));
+  }
 
   return (
     <div className="App">
       <div className="ScrollContainer">
         <Switch>
-          <Route exact path="/"><Home />{ useSelector(selectUserName) } <button onClick={() => dispatch(setUserInfo({userId: "12", userName: "Parmar"})) }></button></Route>
+          <Route exact path="/"><Home /></Route>
           <Route path="/catalogue"><Catalogue /></Route>
           <Route path="/profile"><StoreDetail /></Route>
           <Route path="/qrscreen"><ScreenQR /></Route>
         </Switch>
-        <Cart isOpen={false}/>
+        <Cart isOpen={useSelector(isCartOpen)} closeHandler={updateCartState}/>
       </div>
     </div>
   );
