@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import appReducer from "./appReducer";
-import homeReducer from "./homeReducer";
+import catalogueReducer from "./catalogueReducer";
 
 export const mainReducer = combineReducers({
     app: appReducer,
-    home: homeReducer
+    catalogue: catalogueReducer
 });

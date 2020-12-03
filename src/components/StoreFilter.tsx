@@ -2,27 +2,32 @@ import React from 'react';
 import Button from './Button';
 import Icon from './Icon';
 import "./StoreFilter.scss";
+
+import { useDispatch, useSelector } from 'react-redux';
+import { filters, setFilters } from "../store/catalogueReducer";
+
+interface IStoreFliterProps {
+  clickHandler: () => void;
+}
  
-function StoreFilter() {
- 
+const StoreFilter: React.FC<IStoreFliterProps> = (props: IStoreFliterProps) => {
+
+  const filterList = [...useSelector(filters)];
+
+  const filterItems = filterList.map((item: any) =>
+    <div className="pill" key={item}>
+      {item}
+    <Button className="transparent" type="icon"><Icon type="close"/></Button>
+  </div>
+  );
+
   return (
     <div className="storeFilter">
-      <div className="pill popup">
+      <div className="pill popup" onClick={props.clickHandler}>
         <Icon type="filter"/>
         Filters
       </div>
-      <div className="pill">
-        Near You
-        <Button className="transparent" type="icon"><Icon type="close"/></Button>
-      </div>
-      <div className="pill">
-        Sample Delivery
-        <Button className="transparent" type="icon"><Icon type="close"/></Button>
-      </div>
-      <div className="pill">
-        Virtual Assist
-        <Button className="transparent" type="icon"><Icon type="close"/></Button>
-      </div>
+      {filterItems}
     </div>
   );
 }

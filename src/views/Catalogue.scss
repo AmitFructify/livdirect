@@ -46,10 +46,37 @@
     flex:1;
     background: #f4f4f4;
     overflow-y: auto;
+    position: relative;
     .heading {
         padding: 0.5em 1.5em 1em;
         font-weight: bold;
         text-align: left;
         font-size: 1.1em;
+    }
+    .filterList{ 
+        position: absolute;
+        border: 1px solid #dcdcdc;
+        top: 3.4em;
+        left: -15em;
+        background: #fff;
+        text-align: left;
+        box-shadow: 0px 2px 5px 0px #dadada;
+        border-radius: 7px;
+        transition: all 0.3s ease-in-out;
+        padding: 0.5em 0;
+        .filter {
+            font-size: 1.1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 2.5em;
+            padding-left: 1em;
+            .icon {
+                margin-left: 1em;
+            }
+        }
+        &.open {
+            left: 1.4em;
+        }
     }
 }
