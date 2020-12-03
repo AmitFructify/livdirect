@@ -12,13 +12,16 @@ interface IScreenQRProps{
 };
 
 const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
-  const [result, setResult] = useState("No Result");
+  const [result, setResult] = useState(null);
   const [delay] = useState(600);
 
   const history = useHistory();
 
   const handleScan = (data: any) => {
-    setResult(data);
+    if (data) {
+      setResult(data);
+      history.goBack();
+    }
   }
 
   const handleError = (err:any) => {
@@ -35,6 +38,8 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
         onScan={handleScan}
         />
       <p>{result}</p>
+      <div className="overlay"></div>
+      <div className={`scanBox ${result?"success":""}`}></div>
     </div>
   );
 };

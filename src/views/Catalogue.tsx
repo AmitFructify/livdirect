@@ -85,6 +85,8 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
             { isListMode &&
               <Fragment>
                 {storeItems}
+                <StoreCard store={{id:333}} />
+                <StoreCard store={{id:335}} />
               </Fragment>
             }
 

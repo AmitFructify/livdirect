@@ -21,8 +21,8 @@ function App() {
   return (
     <div className="App">
       <div className="ScrollContainer">
+      <Redirect to={{ pathname: '/catalogue/stores' }} />
         <Switch>
-          <Route exact path="/"><Catalogue /></Route>
           <Route path="/project"><Catalogue /></Route>
           <Route path="/catalogue"><Catalogue /></Route>
           <Route path="/referrals"><Catalogue /></Route>

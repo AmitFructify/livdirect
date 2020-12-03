@@ -8,4 +8,29 @@
         background: #ffffff;
         z-index: 1;
     }
+
+    .overlay {
+        background: transparent;
+        border: 20em solid #00000047;
+        position: absolute;
+        width: 22.3em;
+        height: 22.3em;
+        top: 0;
+        left: 0;
+        transform: translate(-17.05em, -9.8em);
+    }
+    .scanBox {
+        position: absolute;
+        height: 22em;
+        width: 22em;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 15%;
+        margin: auto;
+        border: 2px solid #ffffff;
+        &.success {
+            border: 2px solid #0dd200;
+        }
+    }
 }
