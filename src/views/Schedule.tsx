@@ -12,7 +12,7 @@ interface IScheduleProps{
 const Schedule: React.FC<IScheduleProps> = (props: IScheduleProps) => {
 
   let submitSchedule = () => {
-
+    props.closeHandler();
   };
   let textAreaRows = 3;
 

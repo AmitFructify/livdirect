@@ -7,10 +7,14 @@ import CartCard from "../components/CartCard";
 
 interface ICartProps{
   isOpen: boolean,
-  closeHandler?: () => void
+  closeHandler: () => void
 };
 
 const Cart: React.FC<ICartProps> = (props: ICartProps) => {
+
+  const checkout = () => {
+    props.closeHandler();
+  };
 
   return(
     <div className={`cartWrapper ${props.isOpen? "open": ""}`}>
@@ -35,7 +39,7 @@ const Cart: React.FC<ICartProps> = (props: ICartProps) => {
         </div>
 
         <div className="cartFooter">
-          <Button className="primary">Checkout</Button>
+          <Button className="primary" clickHandler={checkout}>Checkout</Button>
         </div>
       </div>
     </div>
