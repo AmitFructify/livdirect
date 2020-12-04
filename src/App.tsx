@@ -4,7 +4,8 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import {
   setCartState,
-  isCartOpen
+  isCartOpen,
+  toaster
 } from './store/appReducer';
 import Catalogue from "./views/Catalogue";
 import StoreDetail from "./views/StoreDetail";
@@ -12,6 +13,7 @@ import ScreenQR from "./views/ScreenQR";
 import Cart from "./views/Cart";
 import Checkout from "./views/Checkout";
 import ProductDetail from "./views/ProductDetail";
+import Toaster from "./components/Toaster";
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
   const updateCartState = () => {
     dispatch(setCartState({isCartOpen: false}));
   }
+
+  let toasterObj = useSelector(toaster);
 
   return (
     <div className="App">
@@ -35,6 +39,7 @@ function App() {
           <Route path="/checkout"><Checkout /></Route>
           <Route path="/productdetail/:id"><ProductDetail /></Route>
         </Switch>
+        <Toaster message={toasterObj.message} type={toasterObj.type} isOpen={toasterObj.isOpen}/>
         <Cart isOpen={useSelector(isCartOpen)} closeHandler={updateCartState}/>
       </div>
     </div>

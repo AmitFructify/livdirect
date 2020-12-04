@@ -3,6 +3,10 @@ import Button from '../components/Button';
 import Icon from '../components/Icon';
 import "./Schedule.scss";
 
+import { useDispatch } from 'react-redux';
+import {
+  setToaster
+} from '../store/appReducer';
 
 interface IScheduleProps{
   isOpen: boolean,
@@ -10,9 +14,14 @@ interface IScheduleProps{
 }
 
 const Schedule: React.FC<IScheduleProps> = (props: IScheduleProps) => {
+  let dispatch = useDispatch();
 
-  let submitSchedule = () => {
+  const scheduleAppointment = () => {
     props.closeHandler();
+    dispatch(setToaster({message: "Your Appointment Scheduled", type: "info", isOpen: true}));
+    setTimeout(() => {
+      dispatch(setToaster({message: "", type: "", isOpen: false}));
+    },3000);
   };
   let textAreaRows = 3;
 
@@ -92,7 +101,7 @@ const Schedule: React.FC<IScheduleProps> = (props: IScheduleProps) => {
 
 
         <div className="formFooter">
-          <Button className="primary" clickHandler={submitSchedule}>Schedule</Button>
+          <Button className="primary" clickHandler={scheduleAppointment}>Schedule</Button>
         </div>
 
       </div>

@@ -2,19 +2,29 @@ import React from 'react';
 import "./Checkout.scss";
 
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import Button from "../components/Button";
 import Icon from "../components/Icon";
 import CartCard from "../components/CartCard";
+
+import {
+  setToaster
+} from '../store/appReducer';
 
 interface ICheckoutProps{
 };
 
 const Checkout: React.FC<ICheckoutProps> = (props: ICheckoutProps) => {
   const history = useHistory();
+  let dispatch = useDispatch();
 
   const makePayment = () => {
+    dispatch(setToaster({message: "Your Payment was Successful", type: "info", isOpen: true}));
     history.goBack();
+    setTimeout(() => {
+      dispatch(setToaster({message: "", type: "", isOpen: false}));
+    },3000);
   };
 
   return(

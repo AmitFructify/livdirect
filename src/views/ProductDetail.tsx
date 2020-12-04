@@ -11,7 +11,8 @@ import Icon from "../components/Icon";
 import Schedule from "./Schedule";
 import { useDispatch } from 'react-redux';
 import {
-  setCartState
+  setCartState,
+  setToaster
 } from '../store/appReducer';
 
 export default function Catalogue () {
@@ -23,6 +24,13 @@ export default function Catalogue () {
   const updateCartState = () => {
     dispatch(setCartState({isCartOpen: true}));
   }
+
+  const addToCart = () => {
+    dispatch(setToaster({message: "Item added to your cart", type: "info", isOpen: true}));
+    setTimeout(() => {
+      dispatch(setToaster({message: "", type: "", isOpen: false}));
+    },3000);
+  };
 
   return (
     <div className="productDetail">
@@ -133,7 +141,7 @@ export default function Catalogue () {
       </div>
 
       <div className="detailFooter">
-        <Button className="primary">Add to Cart</Button>
+        <Button className="primary" clickHandler={addToCart}>Add to Cart</Button>
       </div>
     </div>
   );
