@@ -65,10 +65,10 @@ export default function Catalogue () {
               <Button className="transparent" type="icon"><Icon type="search"/></Button>
             </div>
             <div className="productList">
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
+              <ProductCard product={{id: 1}} />
+              <ProductCard product={{id: 2}} />
+              <ProductCard product={{id: 3}} />
+              <ProductCard product={{id: 4}} />
             </div>
         </div>
       </div>

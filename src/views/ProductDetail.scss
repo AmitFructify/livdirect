@@ -1,0 +1,208 @@
+@import "../theme.scss";
+
+.productDetail {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .header {    
+        position: absolute;
+        height: 7vh;
+        background: transparent;
+        display: flex;
+        justify-content: space-between;
+        width: 100vw;
+        align-items: center;
+        padding: 0 1em;
+        box-sizing: border-box;
+        .cartButton {
+            margin-right: 0.5em;
+        }
+    }
+    .detailFooter {
+        display: flex;
+        justify-content: space-around;
+        padding: 2%;
+        box-shadow: 0px 0px 20px 0px #d0d0d0;
+        z-index: 1;
+        height: 7vh;
+        .btn {
+            flex: 1;
+            margin: 1%;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+    }
+}
+
+
+
+.productDetailContainer {
+    flex: 1;
+    overflow-y: auto;
+    .productInfo {
+        text-align: left;
+        padding: 1em;
+        .productName {
+            font-weight: bold;
+            font-size: 1.5em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .productType {
+            color: $fontSecondaryColor;
+            font-size: 0.9em;
+            span {
+                display: inline-block;
+                height: 3px;
+                width: 3px;
+                border-radius: 3px;
+                background-color: #796e76;
+                margin-bottom: 2px;
+            }
+        }
+        .price {
+            font-weight: 600;
+            font-size: 1.2em;
+            padding: 1em 0;
+        }
+        .productColors {
+            margin-bottom: 1em;
+        }
+    }
+    .productProducts {
+        background: #f4f4f4;
+        .heading {
+            padding: 0 1em;
+            font-weight: bold;
+            text-align: left;
+            font-size: 1.1em;
+            display: flex;
+            height: 3em;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .productList{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 2%;
+            > div {
+                flex: 0 1 46%;
+                box-sizing: border-box;
+                margin: 2%;
+              }
+        }
+    }
+}
+
+.detailPoster {
+    background: #000;
+    height: 15em;
+}
+
+.productColors {
+    .colorHeading{
+        margin-bottom: 0.7em;
+        .label {
+            color: $fontSecondaryColor;
+            margin-right: 0.5em;
+        }
+    }
+    .colors {
+        display: flex;
+        .color {
+            height: 3em;
+            width: 3em;
+            border: 2px solid #eb595f;
+            border-radius: 2em;
+            padding: 0.15em;
+            margin-right: 0.4em;
+            > div {
+                box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                border-radius: 2em;
+            }
+        }
+        &.dimensions {
+            display: flex;
+            flex-wrap: wrap;
+            > div {
+                flex: 0 1 50%;
+                box-sizing: border-box;
+                margin-bottom: 1.2em;
+                display: flex;
+                align-items: center;
+            }
+            input[type="radio"] {
+                opacity: 0;
+                height: 18px;
+                width: 18px;
+                margin-right: 8px;
+                margin-top: 0;
+                + label{
+                    position: relative;
+                    margin-right: auto;
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        height: 18px;
+                        width: 18px;
+                        left: -27px;
+                        border-radius: 10px;
+                        border: 1px solid;
+                    }
+                }
+
+                &:checked + label{
+                    &::before {
+                        border: none;
+                        background: $primaryColor;
+                        height: 20px;
+                        width: 20px;
+                    }
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        height: 10px;
+                        width: 10px;
+                        left: -22px;
+                        border-radius: 10px;
+                        background: #ffffff;
+                        top: 5px;
+                    }
+                }
+                &:disabled {
+                    & + label {
+                        color: #9a9699;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.collapsibles {
+    .collapsible{
+        border-top: 1px solid #f4f4f4;
+        .heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5em 1em;
+            span {
+                font-size: 1.1em;
+                font-weight: 600;
+            }
+            &.open + .content {
+                display: block;
+            }
+        }
+        .content {
+            text-align: left;
+            padding: 0 1em;
+            display: none;
+        }
+    }
+}

@@ -5,12 +5,26 @@ import "./ProductCard.scss";
 import Button from "./Button";
 import Icon from "./Icon";
  
-function StoreCard() {
+interface IProductCardProps {
+  product: {
+    id: number;
+  };
+};
+
+const StoreCard:React.FC<IProductCardProps> = (props: IProductCardProps) => {
   const history = useHistory();
+
+  let handleClick = (id: number) => {
+    if (history.location.pathname.indexOf("productdetail") > -1) {
+      history.replace("/productdetail/"+id);
+    } else {
+      history.push("/productdetail/"+id);
+    }
+  };
 
  
   return (
-    <div className="productCard">
+    <div className="productCard" onClick={() => handleClick(props.product.id)}>
       <div className="productImage">
       </div>
       <div className="detail">
