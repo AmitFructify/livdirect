@@ -1,12 +1,13 @@
 import React from 'react';
 import Button from '../components/Button';
-import Icon from '../components/Icon';
 import "./Schedule.scss";
 
 import { useDispatch } from 'react-redux';
 import {
   setToaster
 } from '../store/appReducer';
+
+import {ReactComponent as Close} from '../icons/close.svg';
 
 interface IScheduleProps{
   isOpen: boolean,
@@ -32,7 +33,7 @@ const Schedule: React.FC<IScheduleProps> = (props: IScheduleProps) => {
       </div>
       <div className="scheduleForm">
         <div className="formHead">
-          <Button className="transparent" type="icon" clickHandler={props.closeHandler}><Icon type="close"/></Button>
+          <Button className="transparent" type="icon" clickHandler={props.closeHandler}><Close width="18px" height="18px"/></Button>
           <span>Schedule Appointment</span>
         </div>
 
@@ -85,7 +86,7 @@ const Schedule: React.FC<IScheduleProps> = (props: IScheduleProps) => {
           </div>
           <div className="field">
             <div className="fieldLabel">
-              Need Design Assist?
+              Do you want Designer Assistance at Store?
             </div>
             <div className="fieldValue">
               <input type="radio" id="yes" name="designAssist" value="true" defaultChecked/>

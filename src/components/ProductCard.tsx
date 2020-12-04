@@ -3,7 +3,8 @@ import { useHistory } from 'react-router-dom';
 import "./ProductCard.scss";
 
 import Button from "./Button";
-import Icon from "./Icon";
+
+import {ReactComponent as Like} from '../icons/like.svg';
  
 interface IProductCardProps {
   product: {
@@ -32,7 +33,7 @@ const StoreCard:React.FC<IProductCardProps> = (props: IProductCardProps) => {
         <div className="productType">Store Type</div>
         <div className="productPrice">&#x20B9; 1,50,000</div>
         <div className="actions">
-          <Button className="transparent" type="icon"><Icon type="like"/></Button>
+          <Button className="transparent" type="icon"><Like  width="18px" height="18px"/></Button>
         </div>
       </div>
     </div>

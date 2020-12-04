@@ -45,7 +45,7 @@
             font-size: 1.1em;
             display: flex;
             align-items: center;
-            .icon {
+            svg {
                 margin-left: 5px;
             }
         }
@@ -55,6 +55,7 @@
             border: 1px solid #dad7d8;
             float: left;
             border-radius: 20px;
+            padding: 0 0.2em;
             span{
                 width: 30px;
                 text-align: center;

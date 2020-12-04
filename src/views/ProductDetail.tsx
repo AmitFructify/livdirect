@@ -8,12 +8,17 @@ import ProductCard from "../components/ProductCard";
 import Button from "../components/Button";
 import Icon from "../components/Icon";
 
-import Schedule from "./Schedule";
 import { useDispatch } from 'react-redux';
 import {
   setCartState,
   setToaster
 } from '../store/appReducer';
+
+import {ReactComponent as Share} from '../icons/share.svg';
+import {ReactComponent as Like} from '../icons/like.svg';
+import {ReactComponent as Info} from '../icons/info.svg';
+import {ReactComponent as Cart} from '../icons/cart.svg';
+import {ReactComponent as Rightarrow} from '../icons/rightarrow.svg';
 
 export default function Catalogue () {
   const history = useHistory();
@@ -35,9 +40,9 @@ export default function Catalogue () {
   return (
     <div className="productDetail">
       <div className="header">
-        <Button className="secondary" type="icon" clickHandler={handleBackClick}><Icon type="back"/></Button>
+        <Button className="secondary" type="icon" clickHandler={handleBackClick}><Rightarrow width="20px" height="20px"/></Button>
         <div>
-          <Button className="secondary" type="icon" clickHandler={updateCartState}><Icon type="cart"/></Button>
+          <Button className="secondary" type="icon" clickHandler={updateCartState}><Cart width="22px" height="22px"/></Button>
         </div>
       </div>
       <div className="productDetailContainer">
@@ -48,12 +53,12 @@ export default function Catalogue () {
           <div className="productName">
             <span>Minnel Loveseat</span>
             <div className="actions">
-              <Button className="transparent" type="icon"><Icon type="like"/></Button>
-              <Button className="transparent" type="icon"><Icon type="share"/></Button>
+              <Button className="transparent" type="icon"><Like  width="22px" height="22px"/></Button>
+              <Button className="transparent" type="icon"><Share  width="20px" height="20px"/></Button>
             </div>
           </div>
           <div className="productType">By Cherry Pick Furniture <span></span> SKU:SF238783246SD</div>
-          <div className="price">&#x20B9; 1,50,000 <Icon type="info" size="mini"/></div>
+          <div className="price">&#x20B9; 1,50,000  <Info width="14px" height="14px"/></div>
 
           <div className="productColors">
             <div className="colorHeading">

@@ -15,9 +15,13 @@
         align-items: center;
         padding: 0 1em;
         box-sizing: border-box;
-        .cartButton {
+        .actions {
+            display: flex;
+        }
+        .qrButton {
             margin-right: 0.5em;
         }
+        .btn {background-color: #ffffff;}
     }
     .detailFooter {
         display: flex;
@@ -51,6 +55,10 @@
             font-size: 1.5em;
             display: flex;
             justify-content: space-between;
+            .actions{
+                display: flex;
+                .btn:first-child{margin-right: 0.5em;}
+            }
         }
         .storeType {
             color: $fontSecondaryColor;
@@ -58,17 +66,23 @@
         .address, .timings{
             font-size: 1.05em;
             color: #000000;
+            display: flex;
+            align-items: center;
+            svg {
+                margin-left: 0.4em;
+            }
             span {
                 color: $primaryColor;
                 font-weight: 600;
                 &.open {color: #44a058;}
             }
         }
+        .timings{margin-bottom: 0.7em;}
         .indicators {
             display: flex;
             > div {
                 border: 1px solid #dcdcdc;
-                padding: 0 0.8em;
+                padding: 0 0.7em 0 0.8em;
                 border-radius: 10px;
                 margin-right: 1em;
                 display: flex;
@@ -76,7 +90,7 @@
                 height: 1.8em;
                 font-weight: 600;
                 font-size: 0.9em;
-                i{margin-left: 0.5em;}
+                svg{margin-left: 0.5em;}
             }
         }
     }

@@ -10,6 +10,8 @@ import StoreFilter from "../components/StoreFilter";
 import Button from '../components/Button';
 import Icon from '../components/Icon';
 
+import {ReactComponent as Tick} from '../icons/tick.svg';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStores, storeList, filters, setFilters } from "../store/catalogueReducer";
 
@@ -77,9 +79,24 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
           <div className="storeListWrapper">
             <StoreFilter clickHandler={toggleFilterPopup}/>
             <div className={`filterList ${isFilterOpen? "open" : ""}`}>
-              <div className="filter" onClick={() => toggleFilter("Near Me")}><span>Near Me</span><Icon type={`${currentFilter.includes("Near Me")?"tick":""}`}/></div>
-              <div className="filter" onClick={() => toggleFilter("Sample Delivery")}><span>Sample Delivery</span><Icon type={`${currentFilter.includes("Sample Delivery")?"tick":""}`}/></div>
-              <div className="filter" onClick={() => toggleFilter("Virtual Assist")}><span>Virtual Assist</span><Icon type={`${currentFilter.includes("Virtual Assist")?"tick":""}`}/></div>
+              <div className="filter" onClick={() => toggleFilter("Near Me")}>
+                <span>Near Me</span>
+                {currentFilter.includes("Near Me") &&
+                  <Tick width="14px" height="14px"/>
+                }
+              </div>
+              <div className="filter" onClick={() => toggleFilter("Sample Delivery")}>
+                <span>Sample Delivery</span>
+                {currentFilter.includes("Sample Delivery") &&
+                  <Tick width="14px" height="14px"/>
+                }
+              </div>
+              <div className="filter" onClick={() => toggleFilter("Virtual Assist")}>
+                <span>Virtual Assist</span>
+                {currentFilter.includes("Virtual Assist") &&
+                  <Tick width="14px" height="14px"/>
+                }
+              </div>
             </div>
             <div className="heading">Stores near you</div>
             { isListMode &&

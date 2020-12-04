@@ -15,6 +15,7 @@
         align-items: center;
         padding: 0 1em;
         box-sizing: border-box;
+        .btn {background-color: #ffffff;}
         .cartButton {
             margin-right: 0.5em;
         }
@@ -48,6 +49,10 @@
             font-size: 1.5em;
             display: flex;
             justify-content: space-between;
+            .actions{
+                display: flex;
+                .btn:first-child{margin-right: 0.5em;}
+            }
         }
         .productType {
             color: $fontSecondaryColor;
@@ -65,6 +70,11 @@
             font-weight: 600;
             font-size: 1.2em;
             padding: 1em 0;
+            display: flex;
+            align-items: center;
+            svg {
+                margin-left: 5px;
+            }
         }
         .productColors {
             margin-bottom: 1em;

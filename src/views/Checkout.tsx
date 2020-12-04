@@ -5,12 +5,13 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import Button from "../components/Button";
-import Icon from "../components/Icon";
 import CartCard from "../components/CartCard";
 
 import {
   setToaster
 } from '../store/appReducer';
+
+import {ReactComponent as Close} from '../icons/close.svg';
 
 interface ICheckoutProps{
 };
@@ -30,7 +31,7 @@ const Checkout: React.FC<ICheckoutProps> = (props: ICheckoutProps) => {
   return(
     <div className="checkoutWrapper">
       <div className="checkoutHeader">
-        <Button className="transparent" type="icon" clickHandler={() => history.goBack()}><Icon type="close"/></Button>
+        <Button className="transparent" type="icon" clickHandler={() => history.goBack()}><Close width="18px" height="18px"/></Button>
         <span>Checkout</span>
       </div>
       <div className="checkoutScroll">

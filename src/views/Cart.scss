@@ -48,6 +48,10 @@
             padding: 0.9em;
             align-items: center;
             justify-content: space-between;
+            > div {
+                display: flex;
+                align-items: center;
+            }
             .btn {
                 margin-right: 1em;
             }

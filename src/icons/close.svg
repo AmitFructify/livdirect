@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon 2</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.478431 0 0 0 0 0.431373 0 0 0 0 0.466667 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Work-In-Progress" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-1-1" transform="translate(-178.000000, -131.000000)">
+            <g id="Rectangle" transform="translate(0.000000, 104.000000)">
+                <g id="Group-3" transform="translate(113.000000, 16.000000)">
+                    <g id="Icon" transform="translate(62.000000, 8.000000)" filter="url(#filter-1)">
+                        <g>
+                            <rect id="Path" x="0" y="0" width="16" height="16"></rect>
+                            <polygon id="c" fill="#7A6E77" fill-rule="nonzero" points="11.71875 12.65625 12.65625 11.71875 8.9375 8 12.65625 4.28125 11.71875 3.34375 8 7.0625 4.28125 3.34375 3.34375 4.28125 7.0625 8 3.34375 11.71875 4.28125 12.65625 8 8.9375"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

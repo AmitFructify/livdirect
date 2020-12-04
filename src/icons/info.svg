@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon 33</title>
+    <g id="Work-In-Progress" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="4-1-1" transform="translate(-102.000000, -345.000000)">
+            <g id="Group-5" transform="translate(0.000000, 234.000000)">
+                <g id="Icon-33" transform="translate(101.000000, 110.000000)">
+                    <rect id="Path" x="0" y="0" width="16" height="16"></rect>
+                    <path d="M8,14.65625 C11.6875,14.65625 14.65625,11.6875 14.65625,8 C14.65625,4.3125 11.6875,1.34375 8,1.34375 C4.3125,1.34375 1.34375,4.3125 1.34375,8 C1.34375,11.6875 4.3125,14.65625 8,14.65625 Z M8,13.34375 C5.0625,13.34375 2.65625,10.9375 2.65625,8 C2.65625,5.0625 5.0625,2.65625 8,2.65625 C10.9375,2.65625 13.34375,5.0625 13.34375,8 C13.34375,10.9375 10.9375,13.34375 8,13.34375 Z M8.65625,6 L8.65625,4.65625 L7.34375,4.65625 L7.34375,6 L8.65625,6 Z M8.65625,11.34375 L8.65625,7.34375 L7.34375,7.34375 L7.34375,11.34375 L8.65625,11.34375 Z" id="i" fill="#7A6E77" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

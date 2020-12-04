@@ -31,7 +31,11 @@
             
         }
         .actions {
+            display: flex;
             margin-bottom: 0px;
+            .btn:first-child {
+                margin-right: 0.5em;
+            }
         }
     }
 }

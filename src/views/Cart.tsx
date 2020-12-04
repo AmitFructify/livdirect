@@ -4,8 +4,9 @@ import "./Cart.scss";
 import { useHistory } from 'react-router-dom';
 
 import Button from "../components/Button";
-import Icon from "../components/Icon";
 import CartCard from "../components/CartCard";
+
+import {ReactComponent as Close} from '../icons/close.svg';
 
 interface ICartProps{
   isOpen: boolean,
@@ -30,7 +31,7 @@ const Cart: React.FC<ICartProps> = (props: ICartProps) => {
       <div className="cartContainer">
         <div className="cartHead">
           <div>
-            <Button className="transparent" type="icon" clickHandler={props.closeHandler}><Icon type="close"/></Button>
+            <Button className="transparent" type="icon" clickHandler={props.closeHandler}><Close width="18px" height="18px"/></Button>
             <span>Shopping Cart</span>
           </div>
 

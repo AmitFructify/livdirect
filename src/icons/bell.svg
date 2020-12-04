@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="20px" viewBox="0 0 17 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon 6</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.478431 0 0 0 0 0.431373 0 0 0 0 0.466667 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Work-In-Progress" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1-1-1" transform="translate(-244.000000, -846.000000)">
+            <g id="Bottom-Navigation---M" transform="translate(0.000000, 834.000000)">
+                <g id="Tab-4" transform="translate(216.000000, 10.000000)">
+                    <g id="📍Trailing-icon" transform="translate(24.467532, 0.000000)" filter="url(#filter-1)">
+                        <g>
+                            <rect id="Path" x="0" y="0" width="24" height="24"></rect>
+                            <path d="M20.015625,18.984375 L20.015625,18 L18,15.984375 L18,11.015625 C18,7.921875 16.359375,5.34375 13.5,4.6875 L13.5,3.984375 C13.5,3.1875 12.84375,2.484375 12,2.484375 C11.15625,2.484375 10.5,3.1875 10.5,3.984375 L10.5,4.6875 C7.640625,5.34375 6,7.921875 6,11.015625 L6,15.984375 L3.984375,18 L3.984375,18.984375 L20.015625,18.984375 Z M15.984375,17.015625 L8.015625,17.015625 L8.015625,11.015625 C8.015625,8.53125 9.515625,6.515625 12,6.515625 C14.484375,6.515625 15.984375,8.53125 15.984375,11.015625 L15.984375,17.015625 Z M12,21.984375 C13.078125,21.984375 14.015625,21.09375 14.015625,20.015625 L9.984375,20.015625 C9.984375,21.09375 10.921875,21.984375 12,21.984375 Z" id="n" fill="#7A6E77" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

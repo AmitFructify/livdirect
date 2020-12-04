@@ -10,8 +10,9 @@ import {
 } from '../store/appReducer';
 
 import Button from "../components/Button";
-import Icon from "../components/Icon";
 import CartCard from "../components/CartCard";
+
+import {ReactComponent as Close} from '../icons/close.svg';
 
 interface IScreenQRProps{
   url?: string;
@@ -53,7 +54,7 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
 
   return(
     <div className="qrScreenWrapper">
-      <Button className="secondary cameraClose" type="icon" clickHandler={history.goBack}><Icon type="close"/></Button>
+      <Button className="secondary cameraClose" type="icon" clickHandler={history.goBack}><Close width="18px" height="18px"/></Button>
       <QrReader
         delay={delay}
         style={{height: "100vh", width:"100vw"}}
@@ -67,10 +68,8 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
 
       <div className={`productScan ${productPopup? "open":""}`}>
         <div className="head">
-          <div>
-            <Button className="transparent" type="icon" clickHandler={closeProductPop}><Icon type="close"/></Button>
+            <Button className="transparent" type="icon" clickHandler={closeProductPop}><Close width="18px" height="18px"/></Button>
             <span>Product Detail</span>
-          </div>
         </div>
 
         <div className="scroll">

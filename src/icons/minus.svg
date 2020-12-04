@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="2px" viewBox="0 0 12 2" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon 37</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.627451 0 0 0 0 0.592157 0 0 0 0 0.619608 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Work-In-Progress" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="5-1-1" transform="translate(-140.000000, -449.000000)">
+            <g id="Group-4" transform="translate(16.000000, 264.000000)">
+                <g id="Group-12-Copy" transform="translate(0.000000, 40.000000)">
+                    <g id="Selection-Controls-/-Number-/-Incremental-Unselected-@Selection.C" transform="translate(108.000000, 128.000000)">
+                        <g id="Icon-37" transform="translate(12.000000, 8.000000)" filter="url(#filter-1)">
+                            <g>
+                                <rect id="Path" x="0" y="0" width="20" height="20"></rect>
+                                <polygon id="r" fill="#7A6E77" fill-rule="nonzero" points="15.8203125 10.8203125 15.8203125 9.1796875 4.1796875 9.1796875 4.1796875 10.8203125"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

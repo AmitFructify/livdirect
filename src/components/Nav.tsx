@@ -1,17 +1,20 @@
 import React from 'react';
 import './Nav.scss';
 import { NavLink } from "react-router-dom";
-
-import Icon from "./Icon";
+import {ReactComponent as Compas} from '../icons/compas.svg';
+import {ReactComponent as Blocks} from '../icons/blocks.svg';
+import {ReactComponent as Users} from '../icons/users.svg';
+import {ReactComponent as Bell} from '../icons/bell.svg';
+import {ReactComponent as User} from '../icons/user.svg';
 
 const Nav: React.FC = () => {
   return (
     <nav className="Navigation">
-        <NavLink activeClassName="active" to="/project"><Icon type="blocks" size="large" />Project</NavLink>
-        <NavLink activeClassName="active" to="/catalogue/stores"><Icon type="compas" size="large" />Discover</NavLink>
-        <NavLink activeClassName="active" to="/referrals"><Icon type="users" size="large" />Referrals</NavLink>
-        <NavLink activeClassName="active" to="/alerts"><Icon type="bell" size="large" />Alerts</NavLink>
-        <NavLink activeClassName="active" to="/profile"><Icon type="user" size="large" />Profile</NavLink>
+        <NavLink activeClassName="active" to="/project"><Blocks height="22px" width="22px"/>Project</NavLink>
+        <NavLink activeClassName="active" to="/catalogue/stores"><Compas height="22px" width="22px"/>Discover</NavLink>
+        <NavLink activeClassName="active" to="/referrals"><Users height="22px" width="22px"/>Referrals</NavLink>
+        <NavLink activeClassName="active" to="/alerts"><Bell height="22px" width="22px"/>Alerts</NavLink>
+        <NavLink activeClassName="active" to="/profile"><User height="22px" width="22px"/>Profile</NavLink>
     </nav>
   );
 }
