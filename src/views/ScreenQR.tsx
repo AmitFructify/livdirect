@@ -4,6 +4,11 @@ import QrReader from 'react-qr-scanner';
 
 import { useHistory } from 'react-router-dom';
 
+import { useDispatch } from 'react-redux';
+import {
+  setToaster
+} from '../store/appReducer';
+
 import Button from "../components/Button";
 import Icon from "../components/Icon";
 import CartCard from "../components/CartCard";
@@ -13,11 +18,13 @@ interface IScreenQRProps{
 };
 
 const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
+  const history = useHistory();
+  let dispatch = useDispatch();
+
   const [result, setResult] = useState(null);
   const [productPopup, setProductPopup] = useState(false);
   const [delay] = useState(600);
 
-  const history = useHistory();
 
   const handleScan = (data: any) => {
     if (data) {
@@ -33,6 +40,14 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
   const closeProductPop = () => {
     setResult(null);
     setProductPopup(false);
+  };
+
+  const addToCart = () => {
+    history.goBack();
+    dispatch(setToaster({message: "Item added to your cart", type: "info", isOpen: true}));
+    setTimeout(() => {
+      dispatch(setToaster({message: "", type: "", isOpen: false}));
+    },3000);
   };
 
 
@@ -63,7 +78,7 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
         </div>
 
         <div className="footer">
-          <Button className="primary" clickHandler={history.goBack}>Add to Cart</Button>
+          <Button className="primary" clickHandler={addToCart}>Add to Cart</Button>
         </div>
       </div>
     </div>
