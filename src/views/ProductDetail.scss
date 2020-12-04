@@ -15,7 +15,12 @@
         align-items: center;
         padding: 0 1em;
         box-sizing: border-box;
-        .btn {background-color: #ffffff;}
+        .btn {
+            background-color: #ffffff;
+            height: 2.2em;
+            width: 2.2em;
+            border-radius: 2em;
+        }
         .cartButton {
             margin-right: 0.5em;
         }
@@ -107,7 +112,7 @@
 
 .detailPoster {
     background: #000;
-    height: 15em;
+    height: 16em;
 }
 
 .productColors {

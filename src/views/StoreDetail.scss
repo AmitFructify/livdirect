@@ -21,7 +21,12 @@
         .qrButton {
             margin-right: 0.5em;
         }
-        .btn {background-color: #ffffff;}
+        .btn {
+            background-color: #ffffff;
+            height: 2.2em;
+            width: 2.2em;
+            border-radius: 2em;
+        }
     }
     .detailFooter {
         display: flex;
@@ -121,6 +126,6 @@
 
 .detailPoster {
     background: #000;
-    height: 15em;
+    height: 16em;
 }
 

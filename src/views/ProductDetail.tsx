@@ -40,9 +40,9 @@ export default function Catalogue () {
   return (
     <div className="productDetail">
       <div className="header">
-        <Button className="secondary" type="icon" clickHandler={handleBackClick}><Rightarrow width="20px" height="20px"/></Button>
+        <Button className="secondary" type="icon" clickHandler={handleBackClick}><Rightarrow width="16px" height="16px"/></Button>
         <div>
-          <Button className="secondary" type="icon" clickHandler={updateCartState}><Cart width="22px" height="22px"/></Button>
+          <Button className="secondary" type="icon" clickHandler={updateCartState}><Cart width="20px" height="20px"/></Button>
         </div>
       </div>
       <div className="productDetailContainer">
