@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Icon 10</title>
-    <defs>
-        <filter id="filter-1">
-            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.478431 0 0 0 0 0.431373 0 0 0 0 0.466667 0 0 0 1.000000 0"></feColorMatrix>
-        </filter>
-    </defs>
-    <g id="Work-In-Progress" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="1-1-1" transform="translate(-97.000000, -478.000000)">
-            <g id="Card-/-Product-/-Mobile-/-Default-@Card.L" transform="translate(16.000000, 216.000000)">
-                <g id="Group-5" transform="translate(16.000000, 213.000000)">
-                    <g id="Rating-/-Star-/-12px" transform="translate(0.000000, 48.000000)">
-                        <g id="Icon-/-Outlined-/-star_border" transform="translate(64.000000, 0.000000)" filter="url(#filter-1)">
-                            <g>
-                                <rect id="Path" x="0" y="0" width="12" height="12"></rect>
-                                <path d="M9.09375,10.5 L8.2734375,6.984375 L10.9921875,4.6171875 L7.40625,4.3125 L6,1.0078125 L4.59375,4.3125 L1.0078125,4.6171875 L3.7265625,6.984375 L2.90625,10.5 L6,8.625 L9.09375,10.5 Z M7.875,8.8359375 L6,7.7109375 L4.125,8.8359375 L4.6171875,6.703125 L2.953125,5.25 L5.15625,5.0625 L6,3.046875 L6.84375,5.0625 L9.046875,5.25 L7.3828125,6.703125 L7.875,8.8359375 Z" id="s" fill="#7A6E77" fill-rule="nonzero"></path>
-                            </g>
-                        </g>
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+    <g id="1-1-1" transform="translate(-97.000000, -478.000000)">
+        <g id="Card-/-Product-/-Mobile-/-Default-@Card.L" transform="translate(16.000000, 216.000000)">
+            <g id="Group-5" transform="translate(16.000000, 213.000000)">
+                <g id="Rating-/-Star-/-12px" transform="translate(0.000000, 48.000000)">
+                    <g id="Icon-/-Outlined-/-star_border" transform="translate(64.000000, 0.000000)">
+                        <path d="M9.09375,10.5 L8.2734375,6.984375 L10.9921875,4.6171875 L7.40625,4.3125 L6,1.0078125 L4.59375,4.3125 L1.0078125,4.6171875 L3.7265625,6.984375 L2.90625,10.5 L6,8.625 L9.09375,10.5 Z M7.875,8.8359375 L6,7.7109375 L4.125,8.8359375 L4.6171875,6.703125 L2.953125,5.25 L5.15625,5.0625 L6,3.046875 L6.84375,5.0625 L9.046875,5.25 L7.3828125,6.703125 L7.875,8.8359375 Z"></path>
                     </g>
                 </g>
             </g>

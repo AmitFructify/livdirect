@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Icon 11</title>
-    <defs>
-        <filter id="filter-1">
-            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.921569 0 0 0 0 0.349020 0 0 0 0 0.372549 0 0 0 1.000000 0"></feColorMatrix>
-        </filter>
-    </defs>
-    <g id="Work-In-Progress" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="1-1-1" transform="translate(-33.000000, -478.000000)">
-            <g id="Card-/-Product-/-Mobile-/-Default-@Card.L" transform="translate(16.000000, 216.000000)">
-                <g id="Group-5" transform="translate(16.000000, 213.000000)">
-                    <g id="Icon-/-Outlined-/-star_border" transform="translate(0.000000, 48.000000)" filter="url(#filter-1)">
-                        <g>
-                            <rect id="Path" x="0" y="0" width="12" height="12"></rect>
-                            <polygon id="s" fill="#7A6E77" fill-rule="nonzero" points="9.09375 10.5 8.2734375 6.984375 10.9921875 4.6171875 7.40625 4.3125 6 1.0078125 4.59375 4.3125 1.0078125 4.6171875 3.7265625 6.984375 2.90625 10.5 6 8.625"></polygon>
-                        </g>
-                    </g>
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+    <g id="1-1-1" transform="translate(-33.000000, -478.000000)">
+        <g id="Card-/-Product-/-Mobile-/-Default-@Card.L" transform="translate(16.000000, 216.000000)">
+            <g id="Group-5" transform="translate(16.000000, 213.000000)">
+                <g id="Icon-/-Outlined-/-star_border" transform="translate(0.000000, 48.000000)">
+                    <polygon points="9.09375 10.5 8.2734375 6.984375 10.9921875 4.6171875 7.40625 4.3125 6 1.0078125 4.59375 4.3125 1.0078125 4.6171875 3.7265625 6.984375 2.90625 10.5 6 8.625"></polygon>
                 </g>
             </g>
         </g>

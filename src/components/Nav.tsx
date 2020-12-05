@@ -11,7 +11,7 @@ const Nav: React.FC = () => {
   return (
     <nav className="Navigation">
         <NavLink activeClassName="active" to="/project"><Blocks height="22px" width="22px"/>Project</NavLink>
-        <NavLink activeClassName="active" to="/catalogue/stores"><Compas height="22px" width="22px" fill="#eb595f"/>Discover</NavLink>
+        <NavLink activeClassName="active" to="/catalogue/stores"><Compas height="22px" width="22px"/>Discover</NavLink>
         <NavLink activeClassName="active" to="/referrals"><Users height="22px" width="22px"/>Referrals</NavLink>
         <NavLink activeClassName="active" to="/alerts"><Bell height="22px" width="22px"/>Alerts</NavLink>
         <NavLink activeClassName="active" to="/profile"><User height="22px" width="22px"/>Profile</NavLink>
