@@ -29,6 +29,8 @@ export default function Catalogue() {
   const history = useHistory();
   const dispatch = useDispatch();
 
+  let [isNewCartItem, setNewCartItem] = useState(false);
+
   let { id }: any = useParams();
   useEffect(() => {
     dispatch(fetchProduct(id));
@@ -40,11 +42,13 @@ export default function Catalogue() {
   let handleBackClick = () => history.goBack();
 
   const updateCartState = () => {
+    setNewCartItem(false);
     dispatch(setCartState({ isCartOpen: true }));
   }
 
   const addToCart = () => {
     dispatch(setToaster({ message: "Item added to your cart", type: "info", isOpen: true }));
+    setNewCartItem(true);
     setTimeout(() => {
       dispatch(setToaster({ message: "", type: "", isOpen: false }));
     }, 3000);
@@ -54,7 +58,7 @@ export default function Catalogue() {
     <div className="productDetail">
       {currentProduct && <Fragment><div className="header">
         <Button className="secondary" type="icon" clickHandler={handleBackClick}><Rightarrow width="16px" height="16px" /></Button>
-        <div>
+        <div className={`cart ${isNewCartItem?"newInCart":""}`}>
           <Button className="secondary" type="icon" clickHandler={updateCartState}><Cart width="20px" height="20px" /></Button>
         </div>
       </div>

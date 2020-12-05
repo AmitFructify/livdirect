@@ -76,7 +76,7 @@ export const { setSearchString, setStoreList, setFilters } = catalogSlice.action
 export const searchString = (state: any) => state.catalogue.searchString;
 export const filters = (state: any) => state.catalogue.filters;
 export const storeList = (state: any) => {
-  let stores = state.catalogue.storeList;
+  let stores = [...state.catalogue.storeList];
   let searchInput = state.catalogue.searchString;
   if (searchInput) {
     stores = stores.filter((store: any) => store.store_kind.toLowerCase().indexOf(searchInput.toLowerCase()) > -1);

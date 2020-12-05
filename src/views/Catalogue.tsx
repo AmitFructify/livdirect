@@ -34,13 +34,11 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
 
   useEffect(() => {
     dispatch(fetchStores());
-  }, [filters, storeList]);
+  }, [dispatch]);
 
 
   const currentFilter = [...useSelector(filters)];
-
-  const storeListItems = useSelector(storeList);
-  const storeItems = storeListItems.map((store: any) =>
+  const storeItems = useSelector(storeList).map((store: any) =>
     <StoreCard store={store} key={store.id} />
   );
 

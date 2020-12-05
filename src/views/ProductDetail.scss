@@ -24,6 +24,25 @@
         .cartButton {
             margin-right: 0.5em;
         }
+        .cart{
+            position: relative;
+            &::after{
+                content: "";
+                height: 0px;
+                width: 0px;
+                background: #eb595f;
+                display: inline-block;
+                position: absolute;
+                border-radius: 9px;
+                top: -2px;
+                right: -2px;
+                transition: all 0.2s ease-in-out;
+            }
+            &.newInCart::after{
+                height: 11px;
+                width: 11px;
+            }
+        }
     }
     .detailFooter {
         display: flex;
