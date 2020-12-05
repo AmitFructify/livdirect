@@ -32,7 +32,7 @@ export default function Catalogue() {
   let { id }: any = useParams();
   useEffect(() => {
     dispatch(fetchProduct(id));
-  });
+  },[product]);
 
   const currentProduct = useSelector(product);
 

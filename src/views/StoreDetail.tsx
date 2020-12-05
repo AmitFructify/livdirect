@@ -34,9 +34,9 @@ export default function Catalogue() {
   const history = useHistory();
 
   let { id }: any = useParams();
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(fetchStoreProducts(id));
-  });
+  }, [storeById, storeProducts]);
 
 
   let handleBackClick = () => history.push("/catalogue/stores");
@@ -110,7 +110,7 @@ export default function Catalogue() {
               </div>
               <div className="productList">
                 {currentStoreProducts.map((currentProduct: any) => {
-                  return <ProductCard product={currentProduct} key={currentProduct.id}/>
+                  return <ProductCard product={currentProduct} key={currentProduct.id} />
                 })}
               </div>
             </div>}
