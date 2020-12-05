@@ -4,10 +4,11 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
     .mapsFloat {
         margin: 0 auto;
         position: absolute;
-        left: 39%;
+        left: 0;
         right: 0;
         bottom: 8vh;
         padding: 0 0.8em;
@@ -20,8 +21,8 @@
         box-shadow: 0px 0px 4px 0px #d0d0d0;
         z-index: 2;
         font-weight: 500;
-        .icon {
-            margin-right: 5px;
+        svg {
+            margin-right: 0.5em;
         }
     }
 }

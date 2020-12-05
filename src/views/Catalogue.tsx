@@ -11,6 +11,8 @@ import Button from '../components/Button';
 import Icon from '../components/Icon';
 
 import {ReactComponent as Tick} from '../icons/tick.svg';
+import {ReactComponent as Map} from '../icons/map.svg';
+import {ReactComponent as List} from '../icons/list.svg';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStores, storeList, filters, setFilters } from "../store/catalogueReducer";
@@ -108,17 +110,15 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
             }
 
             { !isListMode &&
-              <Fragment>
-                Map
-              </Fragment>
+              <Fragment>Map</Fragment>
             }
           </div>
           <Button className="mapsFloat" clickHandler={changeListMode}>
             { isListMode &&
-              <Icon type="map" />
+              <Map height="16px" width="16px" />
             }
             { !isListMode &&
-              <Icon type="list" />
+              <List height="16px" width="16px" />
             }
             {isListMode? "Map" : "List"}
           </Button>
