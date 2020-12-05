@@ -16,6 +16,9 @@
         display: flex;
         justify-content: center;
     }
+    svg {
+        color: $fontSecondaryColor;
+    }
 
     &.transparent {
         background: transparent;

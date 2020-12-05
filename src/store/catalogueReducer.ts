@@ -4,11 +4,13 @@ import storeServices from "../services/storeServices";
 interface ICatalogState {
   storeList: any[];
   filters: string[];
+  storeProducts: any[];
 }
   
 const initialState: ICatalogState = { 
   storeList: [],
   filters: [],
+  storeProducts: []
 }
 
 export const fetchStores: any = createAsyncThunk(
@@ -16,6 +18,14 @@ export const fetchStores: any = createAsyncThunk(
   async () => {
     const response = await storeServices.storeList();
     return response.data.stores;
+  }
+)
+
+export const fetchStoreProducts: any = createAsyncThunk(
+  'catalogue/fetchStoreProducts',
+  async (storeId: string) => {
+    const response = await storeServices.storeProductList(storeId);
+    return response.data.products;
   }
 )
   
@@ -33,19 +43,24 @@ const catalogSlice = createSlice({
       }
     },
     extraReducers: {
-      // Add reducers for additional action types here, and handle loading state as needed
       [fetchStores.fulfilled]: (state, action) => {
-        // Add user to the state array
         state.storeList = action.payload;
+      },
+      [fetchStoreProducts.fulfilled]: (state, action) => {
+        state.storeProducts = action.payload;
       }
     }
 });
 
 export const { setStoreList, setFilters } = catalogSlice.actions;
+
 export const storeList = (state: any) => state.catalogue.storeList;
 export const filters = (state: any) => state.catalogue.filters;
-// export const storeById = (storeId: string, state: any) => {
-//   state.catalogue.storeList.find((store: any) => store.id ==storeId);
-// }
+
+export const storeById = (state: any, id: number) => {
+  let store = state.catalogue.storeList.find((item: any) => item.id == id);
+  return store;
+}
+export const storeProducts = (state: any) => state.catalogue.storeProducts;
 
 export default catalogSlice.reducer;

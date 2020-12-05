@@ -137,10 +137,6 @@ export default function Catalogue () {
               <span>You may also consider</span>
             </div>
             <div className="productList">
-              <ProductCard product={{id: 1}}  />
-              <ProductCard product={{id: 2}}  />
-              <ProductCard product={{id: 3}}  />
-              <ProductCard product={{id: 4}}  />
             </div>
         </div>
       </div>

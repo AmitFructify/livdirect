@@ -127,8 +127,9 @@
     }
 }
 
-.detailPoster {
-    background: #000;
+.storeDetailContainer .detailPoster {
     height: 16em;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
