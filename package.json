@@ -45,6 +45,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "https://omni-hack.herokuapp.com",
   "eslintConfig": {
     "extends": [
       "react-app",
