@@ -13,9 +13,9 @@ const initialState: ICatalogState = {
 
 export const fetchStores: any = createAsyncThunk(
   'catalogue/fetchStores',
-  async (userId, thunkAPI) => {
+  async () => {
     const response = await storeServices.storeList();
-    return response.data.data;
+    return response.data.stores;
   }
 )
   

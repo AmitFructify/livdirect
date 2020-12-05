@@ -8,7 +8,7 @@ import Nav from "../components/Nav";
 import StoreCard from "../components/StoreCard";
 import StoreFilter from "../components/StoreFilter";
 import Button from '../components/Button';
-import Icon from '../components/Icon';
+import GoogleMap from '../components/GoogleMap';
 
 import {ReactComponent as Tick} from '../icons/tick.svg';
 import {ReactComponent as Map} from '../icons/map.svg';
@@ -104,13 +104,11 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
             { isListMode &&
               <Fragment>
                 {storeItems}
-                <StoreCard store={{id:333}} />
-                <StoreCard store={{id:335}} />
               </Fragment>
             }
 
             { !isListMode &&
-              <Fragment>Map</Fragment>
+              <GoogleMap/>
             }
           </div>
           <Button className="mapsFloat" clickHandler={changeListMode}>

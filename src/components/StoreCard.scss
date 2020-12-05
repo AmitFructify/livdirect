@@ -9,6 +9,8 @@
     .storeImage {
         height: 10em;
         background: #d0d0d0;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     .detail {
         background: #ffffff;
@@ -24,8 +26,8 @@
             color: $fontSecondaryColor;
             font-size: 0.95em;
         }
-        .storeName {
-            
+        .rating {
+            svg {margin-right: 0.2em;}
         }
         .storeName {
             

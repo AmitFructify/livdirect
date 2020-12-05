@@ -32,11 +32,12 @@
     box-shadow: 0px 6px 6px -5px #d0d0d0;
     z-index: 1;
     a {
-        padding: 10px 0;
+        padding: 8px 0 10px 0;
         margin: 0 10px;
-        color: $fontSecondaryColor;
+        color: #796e76;
         font-weight: 500;
         text-decoration: none;
+        font-size: 1.05em;
         &.active {
             color: $primaryColor;
             border-bottom: 2px solid $primaryColor;

@@ -12,6 +12,12 @@ import {ReactComponent as Like} from '../icons/like.svg';
 interface IStoreCardProps {
   store: {
     id: number;
+    display_name: string;
+    image: string;
+    ratings: number;
+    sample_delivery: boolean;
+    store_kind: string;
+    virtual_assistance: boolean;
   };
 }
  
@@ -23,20 +29,25 @@ function StoreCard(props: IStoreCardProps) {
   let storeActionClick = () => {
     alert(1);
   };
+
+  let ratings = [];
+  for(let i=0; i<5; i++) {
+    if (i<props.store.ratings) {
+      ratings.push(<Starred width="10px" height="10px" fill="#eb595f" key={props.store.display_name+i}/>);
+    } else {
+      ratings.push(<Star width="10px" height="10px" fill="#796e76" key={props.store.display_name+i}/>);
+    }
+  }
  
   return (
     <div className="storeCard" onClick={() => handleClick(props.store.id)}>
-      <div className="storeImage">
+      <div className="storeImage" style={{backgroundImage: `url(${props.store.image})`}}>
       </div>
       <div className="detail">
-        <div className="storeName">Store Name</div>
-        <div className="storeType">Store Type</div>
+        <div className="storeName">{props.store.display_name}</div>
+        <div className="storeType">{props.store.store_kind}</div>
         <div className="rating">
-          <Starred width="10px" height="10px"/>
-          <Starred width="10px" height="10px"/>
-          <Starred width="10px" height="10px"/>
-          <Star width="10px" height="10px"/>
-          <Star width="10px" height="10px"/>
+          {ratings}
         </div>
         <div className="actions">
           <Button className="transparent" type="icon" clickHandler={() => storeActionClick}><Like  width="22px" height="22px"/></Button>

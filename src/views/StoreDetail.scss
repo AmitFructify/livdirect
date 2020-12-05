@@ -68,6 +68,9 @@
         .storeType {
             color: $fontSecondaryColor;
         }
+        .rating {
+            svg{margin-right: 0.4em;}
+        }
         .address, .timings{
             font-size: 1.05em;
             color: #000000;

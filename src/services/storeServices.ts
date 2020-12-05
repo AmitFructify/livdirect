@@ -2,7 +2,7 @@ const axios = require('axios').default;
 
 const StoreServices = {
     storeList: () => {
-        return axios.get('http://dummy.restapiexample.com/api/v1/employees');
+        return axios.get('/v1/vendors');
     }
 };
 
