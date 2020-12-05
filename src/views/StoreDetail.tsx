@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import './StoreDetail.scss';
 import { useHistory, useParams } from "react-router-dom";
 
@@ -33,6 +33,12 @@ export default function Catalogue() {
   const [isOpen, setScheduleState] = useState(false);
   const history = useHistory();
 
+  let { id }: any = useParams();
+  useEffect(()=>{
+    dispatch(fetchStoreProducts(id));
+  });
+
+
   let handleBackClick = () => history.push("/catalogue/stores");
   let openSchedule = () => setScheduleState(true);
   let closeSchedule = () => setScheduleState(false);
@@ -44,11 +50,9 @@ export default function Catalogue() {
     dispatch(setCartState({ isCartOpen: true }));
   }
 
-  let { id }: any = useParams();
-  dispatch(fetchStoreProducts(id));
 
-  let store = useSelector((state) => storeById(state, id));
-  let currentStoreProducts = useSelector(storeProducts);
+  const store = useSelector((state) => storeById(state, id));
+  const currentStoreProducts = useSelector(storeProducts);
 
   let ratings = [];
   if (store) {

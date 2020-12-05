@@ -6,6 +6,9 @@ const StoreServices = {
     },
     storeProductList: (storeId: string) => {
         return axios.get(`/v1/vendors/${storeId}/products`);
+    },
+    storeProduct: (productId: string) => {
+        return axios.get(`/v1/products/${productId}`);
     }
 };
 

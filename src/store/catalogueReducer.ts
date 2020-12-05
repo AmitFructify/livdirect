@@ -5,12 +5,14 @@ interface ICatalogState {
   storeList: any[];
   filters: string[];
   storeProducts: any[];
+  product: any;
 }
   
 const initialState: ICatalogState = { 
   storeList: [],
   filters: [],
-  storeProducts: []
+  storeProducts: [],
+  product: null
 }
 
 export const fetchStores: any = createAsyncThunk(
@@ -26,6 +28,14 @@ export const fetchStoreProducts: any = createAsyncThunk(
   async (storeId: string) => {
     const response = await storeServices.storeProductList(storeId);
     return response.data.products;
+  }
+)
+
+export const fetchProduct: any = createAsyncThunk(
+  'catalogue/fetchProduct',
+  async (productId: string) => {
+    const response = await storeServices.storeProduct(productId);
+    return response.data;
   }
 )
   
@@ -48,6 +58,9 @@ const catalogSlice = createSlice({
       },
       [fetchStoreProducts.fulfilled]: (state, action) => {
         state.storeProducts = action.payload;
+      },
+      [fetchProduct.fulfilled]: (state, action) => {
+        state.product = action.payload;
       }
     }
 });
@@ -62,5 +75,7 @@ export const storeById = (state: any, id: number) => {
   return store;
 }
 export const storeProducts = (state: any) => state.catalogue.storeProducts;
+
+export const product = (state: any) => state.catalogue.product;
 
 export default catalogSlice.reducer;

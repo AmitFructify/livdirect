@@ -12,7 +12,8 @@
 
     .productImage {
         height: 10em;
-        background: #d0d0d0;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     .detail {
         background: #ffffff;
