@@ -1,4 +1,4 @@
-import React, { ReactEventHandler, SyntheticEvent } from 'react';
+import React from 'react';
 import './Header.scss';
 
 import Button from "./Button";
@@ -18,7 +18,6 @@ import { ReactComponent as Cart } from '../icons/cart.svg';
 interface IHeaderProps {
   qrClickHandle: () => void
 };
-interface IHeaderState { };
 
 const Header: React.FC<IHeaderProps> = (props: IHeaderProps) => {
   const dispatch = useDispatch();

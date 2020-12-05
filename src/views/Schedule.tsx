@@ -52,7 +52,7 @@ const Schedule: React.FC<IScheduleProps> = (props: IScheduleProps) => {
               <input type="radio" id="home" name="scheduleType" value="home" onChange={() => setType("home")} />
               <label htmlFor="home">Home</label>
             </div>
-            {type == "home" && <div className="fieldInfo">
+            {type === "home" && <div className="fieldInfo">
               <p> You will be charged a flat fee of &#x20B9; 1,000 per expert visit with samples and the same will be deducted from your Livspace Wallet.</p>
             </div>}
           </div>

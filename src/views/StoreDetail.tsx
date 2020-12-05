@@ -29,15 +29,15 @@ import { ReactComponent as Star } from '../icons/star.svg';
 import { ReactComponent as Starred } from '../icons/starred.svg';
 
 export default function Catalogue() {
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   const [isOpen, setScheduleState] = useState(false);
-  const history = useHistory();
 
   let { id }: any = useParams();
   useEffect(() => {
     dispatch(fetchStoreProducts(id));
-  }, [storeById, storeProducts]);
-
+  }, [id, dispatch]);
 
   let handleBackClick = () => history.push("/catalogue/stores");
   let openSchedule = () => setScheduleState(true);
@@ -45,7 +45,6 @@ export default function Catalogue() {
 
   let handleQRClick = () => history.push("/qrscreen");
 
-  const dispatch = useDispatch();
   const updateCartState = () => {
     dispatch(setCartState({ isCartOpen: true }));
   }

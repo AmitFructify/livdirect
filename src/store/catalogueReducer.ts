@@ -60,9 +60,7 @@ const catalogSlice = createSlice({
   },
   extraReducers: {
     [fetchStores.fulfilled]: (state, action) => {
-      if (action.payload) {
-        state.storeList = action.payload;
-      }
+      state.storeList = action.payload;
     },
     [fetchStoreProducts.fulfilled]: (state, action) => {
       state.storeProducts = action.payload;
@@ -97,7 +95,7 @@ export const storeList = (state: any) => {
 
 
 export const storeById = (state: any, id: number) => {
-  let store = state.catalogue.storeList.find((item: any) => item.id == id);
+  let store = state.catalogue.storeList.find((item: any) => item.id === Number(id));
   return store;
 };
 export const storeProducts = (state: any) => state.catalogue.storeProducts;

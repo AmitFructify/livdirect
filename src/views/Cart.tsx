@@ -15,7 +15,6 @@ interface ICartProps{
 
 const Cart: React.FC<ICartProps> = (props: ICartProps) => {
   const history = useHistory();
-  const goToCheckout = () => history.push("/checkout");
 
   const checkout = () => {
     props.closeHandler();

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import "./CartCard.scss";
 
 import Button from "./Button";
@@ -10,9 +9,6 @@ import {ReactComponent as Trash} from '../icons/trash.svg';
 import {ReactComponent as Info} from '../icons/info.svg';
  
 function CartCard() {
-  const history = useHistory();
-
-  let handleClick = () => history.push("/storedetail");
  
   return (
     <div className="cartCard">

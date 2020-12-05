@@ -4,7 +4,6 @@ import React, { useState, useEffect, Fragment } from 'react';
 import './ProductDetail.scss';
 import { useHistory, useParams } from "react-router-dom";
 
-import ProductCard from "../components/ProductCard";
 import Button from "../components/Button";
 import Icon from "../components/Icon";
 
@@ -34,7 +33,7 @@ export default function Catalogue() {
   let { id }: any = useParams();
   useEffect(() => {
     dispatch(fetchProduct(id));
-  },[product]);
+  },[id, dispatch]);
 
   const currentProduct = useSelector(product);
 
