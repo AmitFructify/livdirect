@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="12px" height="16px" viewBox="0 0 12 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Icon 35</title>
-    <g id="Work-In-Progress" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="4-2-1" transform="translate(-328.000000, -194.000000)">
-            <g id="Group-Copy" transform="translate(0.000000, 100.000000)">
-                <g id="Group-3" transform="translate(0.000000, 12.000000)">
-                    <g id="Group-12-Copy" transform="translate(0.000000, 56.000000)">
-                        <g id="Icon-35" transform="translate(324.000000, 24.000000)">
-                            <rect id="Path" x="0" y="0" width="20" height="20"></rect>
-                            <path d="M15.8203125,5 L15.8203125,3.3203125 L12.9296875,3.3203125 L12.0703125,2.5 L7.9296875,2.5 L7.0703125,3.3203125 L4.1796875,3.3203125 L4.1796875,5 L15.8203125,5 Z M13.3203125,17.5 C14.2578125,17.5 15,16.7578125 15,15.8203125 L15,5.8203125 L5,5.8203125 L5,15.8203125 C5,16.7578125 5.7421875,17.5 6.6796875,17.5 L13.3203125,17.5 Z M13.3203125,15.8203125 L6.6796875,15.8203125 L6.6796875,7.5 L13.3203125,7.5 L13.3203125,15.8203125 Z" id="d" fill="#7A6E77" fill-rule="nonzero"></path>
-                        </g>
+<svg width="12px" height="16px" viewBox="0 0 12 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+    <g id="4-2-1" transform="translate(-328.000000, -194.000000)">
+        <g id="Group-Copy" transform="translate(0.000000, 100.000000)">
+            <g id="Group-3" transform="translate(0.000000, 12.000000)">
+                <g id="Group-12-Copy" transform="translate(0.000000, 56.000000)">
+                    <g id="Icon-35" transform="translate(324.000000, 24.000000)">
+                        <path d="M15.8203125,5 L15.8203125,3.3203125 L12.9296875,3.3203125 L12.0703125,2.5 L7.9296875,2.5 L7.0703125,3.3203125 L4.1796875,3.3203125 L4.1796875,5 L15.8203125,5 Z M13.3203125,17.5 C14.2578125,17.5 15,16.7578125 15,15.8203125 L15,5.8203125 L5,5.8203125 L5,15.8203125 C5,16.7578125 5.7421875,17.5 6.6796875,17.5 L13.3203125,17.5 Z M13.3203125,15.8203125 L6.6796875,15.8203125 L6.6796875,7.5 L13.3203125,7.5 L13.3203125,15.8203125 Z"></path>
                     </g>
                 </g>
             </g>
