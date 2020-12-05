@@ -60,7 +60,9 @@ const catalogSlice = createSlice({
   },
   extraReducers: {
     [fetchStores.fulfilled]: (state, action) => {
-      state.storeList = action.payload;
+      if (action.payload) {
+        state.storeList = action.payload;
+      }
     },
     [fetchStoreProducts.fulfilled]: (state, action) => {
       state.storeProducts = action.payload;
