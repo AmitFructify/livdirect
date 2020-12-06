@@ -10,14 +10,15 @@ import {
 import { ReactComponent as Close } from '../icons/close.svg';
 
 interface IScheduleProps {
-  isOpen: boolean,
-  closeHandler: () => void
+  isOpen: boolean;
+  closeHandler: () => void;
+  storeAddress: string;
 }
 
 const Schedule: React.FC<IScheduleProps> = (props: IScheduleProps) => {
   let dispatch = useDispatch();
 
-  let [type, setType] = useState("store");
+  let [type, setType] = useState("Store");
   let [neeDesignerAssist, setAssist] = useState(true);
 
   const scheduleAppointment = () => {
@@ -47,12 +48,12 @@ const Schedule: React.FC<IScheduleProps> = (props: IScheduleProps) => {
               Type
             </div>
             <div className="fieldValue">
-              <input type="radio" id="store" name="scheduleType" value="store" defaultChecked onChange={() => setType("store")} />
-              <label htmlFor="store">Store</label>
-              <input type="radio" id="home" name="scheduleType" value="home" onChange={() => setType("home")} />
-              <label htmlFor="home">Home</label>
+              <input type="radio" id="Store" name="scheduleType" value="Store" defaultChecked onChange={() => setType("Store")} />
+              <label htmlFor="Store">Store</label>
+              <input type="radio" id="Home" name="scheduleType" value="Home" onChange={() => setType("Home")} />
+              <label htmlFor="Home">Home</label>
             </div>
-            {type === "home" && <div className="fieldInfo">
+            {type === "Home" && <div className="fieldInfo">
               <p> You will be charged a flat fee of &#x20B9; 1,000 per expert visit with samples and the same will be deducted from your Livspace Wallet.</p>
             </div>}
           </div>
@@ -81,15 +82,15 @@ const Schedule: React.FC<IScheduleProps> = (props: IScheduleProps) => {
           </div>
           <div className="field">
             <div className="fieldLabel">
-              Home address
+              {type} address
             </div>
             <div className="fieldValue">
-              <textarea rows={textAreaRows}></textarea>
+              <textarea rows={textAreaRows} disabled={type === "Store"?true:false} value={type === "Store"? props.storeAddress: "#2, 80 Feet Road, (opp. Kormangala Indoor Stadium, Kormangala 8th Block, Bengaluru, Karnataka 560095"}></textarea>
             </div>
           </div>
           <div className="field">
             <div className="fieldLabel">
-              Do you want Designer Assistance at Store?
+              Do you want Designer Assistance at {type}?
             </div>
             <div className="fieldValue">
               <input type="radio" id="yes" name="designAssist" value="true" defaultChecked onChange={() => setAssist(true)} />
@@ -98,7 +99,7 @@ const Schedule: React.FC<IScheduleProps> = (props: IScheduleProps) => {
               <label htmlFor="no">No</label>
             </div>
             {neeDesignerAssist && <div className="fieldInfo">
-              <p> You will be charged &#x20B9; 500 per hour for Design Assist and the same will be deducted from your Livspace Wallet.</p>
+              <p> You will be charged &#x20B9; 1000 per hour for Designer Assistance and the same will be deducted from your Livspace Wallet.</p>
             </div>}
           </div>
         </div>

@@ -118,10 +118,10 @@ export default function Catalogue() {
           <div className="detailFooter">
             <Button className="primary" clickHandler={openSchedule}>Schedule Appointment</Button>
           </div>
+
+          <Schedule isOpen={isOpen} closeHandler={closeSchedule} storeAddress={store.address}/>
         </Fragment>
       }
-
-      <Schedule isOpen={isOpen} closeHandler={closeSchedule} />
     </div>
   );
 }
