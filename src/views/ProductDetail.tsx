@@ -15,7 +15,8 @@ import {
 import {
   fetchProduct,
   product,
-  updateProduct
+  updateProduct,
+  fetchCartProducts
 } from '../store/catalogueReducer';
 
 import { ReactComponent as Share } from '../icons/share.svg';
@@ -47,7 +48,9 @@ export default function Catalogue() {
   }
 
   const addToCart = () => {
-    dispatch(updateProduct({productId: currentProduct.id, request: {in_cart: true, cart_item_count: 1}}));
+    dispatch(updateProduct({productId: currentProduct.id, request: {in_cart: true, cart_item_count: currentProduct.cart_item_count + 1}})).then(()=>{
+      dispatch(fetchCartProducts());
+    });
     dispatch(setToaster({ message: "Item added to your cart", type: "info", isOpen: true }));
     setNewCartItem(true);
     setTimeout(() => {
@@ -55,7 +58,11 @@ export default function Catalogue() {
     }, 3000);
   };
 
-  const likeProduct = () => dispatch(updateProduct({productId: currentProduct.id, request: {is_liked: !currentProduct.is_liked}}));
+  const likeProduct = () => {
+    dispatch(updateProduct({productId: currentProduct.id, request: {is_liked: !currentProduct.is_liked}})).then(()=>{
+      dispatch(fetchProduct(id));
+    });
+  }
 
   return (
     <div className="productDetail">

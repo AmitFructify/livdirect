@@ -96,9 +96,6 @@ const catalogSlice = createSlice({
     [fetchProduct.fulfilled]: (state, action) => {
       state.product = action.payload;
     },
-    [updateProduct.fulfilled]: (state, action) => {
-      state.product = action.payload;
-    },
     [fetchCartProducts.fulfilled]: (state, action) => {
       state.cartProducts = action.payload;
     },

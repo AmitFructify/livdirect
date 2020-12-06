@@ -12,7 +12,8 @@ import {
 } from '../store/appReducer';
 import {
   fetchCartProducts,
-  cartProducts
+  cartProducts,
+  updateProduct
 } from '../store/catalogueReducer';
 
 import {ReactComponent as Close} from '../icons/close.svg';
@@ -28,11 +29,17 @@ const Checkout: React.FC<ICheckoutProps> = (props: ICheckoutProps) => {
     dispatch(fetchCartProducts());
   },[dispatch]);
 
+  const updateProductHandler = (updateObj: {productId: number, request: any}) => {
+    dispatch(updateProduct(updateObj)).then(()=>{
+      dispatch(fetchCartProducts());
+    });
+  };
+
   const currentCartProducts = useSelector(cartProducts);
   let totalCartValue = 0;
   const cartItems = currentCartProducts.map((cartItem: any)=> {
     totalCartValue += cartItem.prices * cartItem.cart_item_count;
-    return <CartCard product={cartItem} key={cartItem.id}/>
+    return <CartCard product={cartItem} key={cartItem.id} updateProduct={updateProductHandler}/>
   });
   let discountPerc = 12;
   let discount = Math.ceil((totalCartValue*discountPerc)/100);

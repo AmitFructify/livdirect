@@ -1,6 +1,5 @@
 import React from 'react';
 import "./CartCard.scss";
-import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 
 import Button from "./Button";
@@ -10,12 +9,9 @@ import {ReactComponent as Minus} from '../icons/minus.svg';
 import {ReactComponent as Trash} from '../icons/trash.svg';
 import {ReactComponent as Info} from '../icons/info.svg';
 
-import {
-  updateProduct
-} from '../store/catalogueReducer';
- 
 interface ICartCardProps{
-  closeHandler?: () => void
+  closeHandler?: () => void;
+  updateProduct: (updateObj: {productId: number, request: any}) => void;
   product: {
     cart_item_count: number;
     color: string;
@@ -35,7 +31,6 @@ interface ICartCardProps{
 
 const CartCard: React.FC<ICartCardProps> = (props: ICartCardProps) => {
   const history = useHistory();
-  const dispatch = useDispatch();
 
   let openProductDetail = (id: number) => {
     if (props.closeHandler) {
@@ -48,8 +43,19 @@ const CartCard: React.FC<ICartCardProps> = (props: ICartCardProps) => {
     }
   };
 
-  const deleteFromCart = () => dispatch(updateProduct({productId: props.product.id, request: {in_cart: false}}));
- 
+  const increaseCartItem = () => props.updateProduct({productId: props.product.id, request: {cart_item_count: props.product.cart_item_count+1}});
+  const decreaseCartItem = () => {
+    let updateValue = {productId: props.product.id, request: {cart_item_count: props.product.cart_item_count, in_cart: true}};
+
+    if (props.product.cart_item_count > 1) {
+      updateValue = {productId: props.product.id, request: {cart_item_count: props.product.cart_item_count-1, in_cart: true}};
+    } else {
+      updateValue = {productId: props.product.id, request: {cart_item_count: 0, in_cart: false}};
+    }
+
+    props.updateProduct(updateValue);
+  }
+
   return (
     <div className="cartCard">
       <div className="cartImage" style={{ backgroundImage: `url(${props.product.image})` }} onClick={() => openProductDetail(props.product.id)}>
@@ -60,12 +66,12 @@ const CartCard: React.FC<ICartCardProps> = (props: ICartCardProps) => {
         <div className="productCode">SKU: {props.product.sku}</div>
         <div className="productPrice">&#x20B9; {props.product.prices * props.product.cart_item_count}<Info width="14px" height="14px"/></div>
         <div className="counter">
-          <Button className="transparent" type="icon"><Plus width="14px" height="14px"/></Button>
+          <Button className="transparent" type="icon" clickHandler={increaseCartItem}><Plus width="14px" height="14px"/></Button>
           <span>{props.product.cart_item_count}</span>
-          <Button className="transparent" type="icon"><Minus width="14px" height="14px"/></Button>
+          <Button className="transparent" type="icon" clickHandler={decreaseCartItem}><Minus width="14px" height="14px"/></Button>
         </div>
       </div>
-      <Button className="transparent" type="icon" clickHandler={deleteFromCart}><Trash width="16px" height="16px"/></Button>
+      <Button className="transparent" type="icon" clickHandler={() => props.updateProduct({productId: props.product.id, request: {cart_item_count: 0, in_cart: false}})}><Trash width="16px" height="16px"/></Button>
     </div>
   );
 }

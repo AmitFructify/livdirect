@@ -9,7 +9,8 @@ import CartCard from "../components/CartCard";
 
 import {
   fetchCartProducts,
-  cartProducts
+  cartProducts,
+  updateProduct
 } from '../store/catalogueReducer';
 
 import {ReactComponent as Close} from '../icons/close.svg';
@@ -27,11 +28,17 @@ const Cart: React.FC<ICartProps> = (props: ICartProps) => {
     dispatch(fetchCartProducts());
   },[dispatch]);
 
+  const updateProductHandler = (updateObj: {productId: number, request: any}) => {
+    dispatch(updateProduct(updateObj)).then(() => {
+      dispatch(fetchCartProducts());
+    });
+  };
+
   const currentCartProducts = useSelector(cartProducts);
   let totalCartValue = 0;
   const cartItems = currentCartProducts.map((cartItem: any)=> {
     totalCartValue += cartItem.prices* cartItem.cart_item_count;
-    return <CartCard product={cartItem} closeHandler={props.closeHandler} key={cartItem.id}/>
+    return <CartCard product={cartItem} closeHandler={props.closeHandler} updateProduct={updateProductHandler} key={cartItem.id}/>
   });
 
   const checkout = () => {
