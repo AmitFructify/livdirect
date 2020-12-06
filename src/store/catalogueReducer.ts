@@ -7,6 +7,8 @@ interface ICatalogState {
   filters: string[];
   storeProducts: any[];
   product: any;
+  cartProducts: any[];
+  qrProduct: any;
 }
 
 const initialState: ICatalogState = {
@@ -14,7 +16,9 @@ const initialState: ICatalogState = {
   storeList: [],
   filters: [],
   storeProducts: [],
-  product: null
+  product: null,
+  cartProducts: [],
+  qrProduct: null
 }
 
 export const fetchStores: any = createAsyncThunk(
@@ -49,6 +53,22 @@ export const updateProduct: any = createAsyncThunk(
   }
 )
 
+export const fetchCartProducts: any = createAsyncThunk(
+  'catalogue/fetchCartProducts',
+  async () => {
+    const response = await storeServices.cartProducts();
+    return response.data.products;
+  }
+)
+
+export const fetchQRProduct: any = createAsyncThunk(
+  'catalogue/fetchQRProduct',
+  async (qrCode: string) => {
+    const response = await storeServices.qrProduct(qrCode);
+    return response.data;
+  }
+)
+
 const catalogSlice = createSlice({
   name: 'catalogue',
   initialState,
@@ -78,6 +98,12 @@ const catalogSlice = createSlice({
     },
     [updateProduct.fulfilled]: (state, action) => {
       state.product = action.payload;
+    },
+    [fetchCartProducts.fulfilled]: (state, action) => {
+      state.cartProducts = action.payload;
+    },
+    [fetchQRProduct.fulfilled]: (state, action) => {
+      state.qrProduct = action.payload;
     }
   }
 });
@@ -111,5 +137,7 @@ export const storeById = (state: any, id: number) => {
 };
 export const storeProducts = (state: any) => state.catalogue.storeProducts;
 export const product = (state: any) => state.catalogue.product;
+export const cartProducts = (state: any) => state.catalogue.cartProducts;
+export const qrProduct = (state: any) => state.catalogue.qrProduct;
 
 export default catalogSlice.reducer;

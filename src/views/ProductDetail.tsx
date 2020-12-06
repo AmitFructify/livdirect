@@ -3,11 +3,11 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import './ProductDetail.scss';
 import { useHistory, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 
 import Button from "../components/Button";
 import Icon from "../components/Icon";
 
-import { useDispatch, useSelector } from 'react-redux';
 import {
   setCartState,
   setToaster

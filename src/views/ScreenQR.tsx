@@ -4,10 +4,14 @@ import QrReader from 'react-qr-scanner';
 
 import { useHistory } from 'react-router-dom';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   setToaster
 } from '../store/appReducer';
+import {
+  qrProduct,
+  fetchQRProduct
+} from '../store/catalogueReducer';
 
 import Button from "../components/Button";
 import CartCard from "../components/CartCard";
@@ -26,10 +30,12 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
   const [productPopup, setProductPopup] = useState(false);
   const [delay] = useState(600);
 
+  let productDetail = useSelector(qrProduct);
 
   const handleScan = (data: any) => {
     if (data) {
       setResult(data);
+      dispatch(fetchQRProduct(data));
       setProductPopup(true);
     }
   }
@@ -73,7 +79,6 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
         </div>
 
         <div className="scroll">
-          <CartCard/>
         </div>
 
         <div className="footer">

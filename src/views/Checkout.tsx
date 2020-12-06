@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./Checkout.scss";
 
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Button from "../components/Button";
 import CartCard from "../components/CartCard";
@@ -10,6 +10,10 @@ import CartCard from "../components/CartCard";
 import {
   setToaster
 } from '../store/appReducer';
+import {
+  fetchCartProducts,
+  cartProducts
+} from '../store/catalogueReducer';
 
 import {ReactComponent as Close} from '../icons/close.svg';
 
@@ -19,6 +23,20 @@ interface ICheckoutProps{
 const Checkout: React.FC<ICheckoutProps> = (props: ICheckoutProps) => {
   const history = useHistory();
   let dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCartProducts());
+  },[dispatch]);
+
+  const currentCartProducts = useSelector(cartProducts);
+  let totalCartValue = 0;
+  const cartItems = currentCartProducts.map((cartItem: any)=> {
+    totalCartValue += cartItem.prices * cartItem.cart_item_count;
+    return <CartCard product={cartItem} key={cartItem.id}/>
+  });
+  let discountPerc = 12;
+  let discount = Math.ceil((totalCartValue*discountPerc)/100);
+  let payableAmount = totalCartValue - discount;
 
   const makePayment = () => {
     dispatch(setToaster({message: "Your Payment was Successful", type: "info", isOpen: true}));
@@ -42,20 +60,17 @@ const Checkout: React.FC<ICheckoutProps> = (props: ICheckoutProps) => {
           <div>+91 25645 75836</div>
         </div>
         <div className="heading">Order Summary</div>
-        <div className="content">
-          <CartCard/>
-          <CartCard/>
-        </div>
+        <div className="content">{cartItems}</div>
         <div className="heading">Price Detail</div>
         
         <div className="content pricingTable">
           <div className="itemsPrice">
-            <div className="label">Price (no. Items)</div>
-            <div className="value">&#x20B9; 67,340</div>
+            <div className="label">Price ({currentCartProducts.length} Items)</div>
+            <div className="value">&#x20B9; {totalCartValue}</div>
           </div>
           <div className="discount">
             <div className="label">Discount</div>
-            <div className="value">-&#x20B9; 6.734</div>
+            <div className="value">-&#x20B9; {discount}</div>
           </div>
           <div className="delivery">
             <div className="label">Delivery</div>
@@ -63,13 +78,13 @@ const Checkout: React.FC<ICheckoutProps> = (props: ICheckoutProps) => {
           </div>
           <div className="payable">
             <div className="label">Amount Payable</div>
-            <div className="value">&#x20B9; 59,276</div>
+            <div className="value">&#x20B9; {payableAmount}</div>
           </div>
         </div>
 
         <div className="content discount">
           <div className="head">Congratulations!</div>
-          <p>You got a cashback of &#x20B9; 6,734 (10%) for shopping through a partner store.</p>
+          <p>You got a cashback of &#x20B9; {discount} ({discountPerc}%) for shopping through a partner store.</p>
         </div>
         <div className="heading">Wallet Balance</div>
         <div className="content payment">
@@ -82,7 +97,7 @@ const Checkout: React.FC<ICheckoutProps> = (props: ICheckoutProps) => {
       </div>
       <div className="checkoutFooter">
         <div>
-          <div className="amount">&#x20B9; 59,276</div>
+          <div className="amount">&#x20B9; {payableAmount}</div>
           <div className="priceDetailLink">View Price Details</div>
         </div>
         <Button className="primary" clickHandler={() => makePayment()}>Make Payment</Button>
