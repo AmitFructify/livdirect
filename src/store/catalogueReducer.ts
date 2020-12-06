@@ -41,6 +41,14 @@ export const fetchProduct: any = createAsyncThunk(
   }
 )
 
+export const updateProduct: any = createAsyncThunk(
+  'catalogue/updateProduct',
+  async (requestObj: any) => {
+    const response = await storeServices.updateProduct(requestObj);
+    return response.data.product;
+  }
+)
+
 const catalogSlice = createSlice({
   name: 'catalogue',
   initialState,
@@ -66,6 +74,9 @@ const catalogSlice = createSlice({
       state.storeProducts = action.payload;
     },
     [fetchProduct.fulfilled]: (state, action) => {
+      state.product = action.payload;
+    },
+    [updateProduct.fulfilled]: (state, action) => {
       state.product = action.payload;
     }
   }

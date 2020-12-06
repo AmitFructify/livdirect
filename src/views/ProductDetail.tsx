@@ -14,7 +14,8 @@ import {
 } from '../store/appReducer';
 import {
   fetchProduct,
-  product
+  product,
+  updateProduct
 } from '../store/catalogueReducer';
 
 import { ReactComponent as Share } from '../icons/share.svg';
@@ -46,12 +47,15 @@ export default function Catalogue() {
   }
 
   const addToCart = () => {
+    dispatch(updateProduct({productId: currentProduct.id, request: {in_cart: true, cart_item_count: 1}}));
     dispatch(setToaster({ message: "Item added to your cart", type: "info", isOpen: true }));
     setNewCartItem(true);
     setTimeout(() => {
       dispatch(setToaster({ message: "", type: "", isOpen: false }));
     }, 3000);
   };
+
+  const likeProduct = () => dispatch(updateProduct({productId: currentProduct.id, request: {is_liked: !currentProduct.is_liked}}));
 
   return (
     <div className="productDetail">
@@ -69,8 +73,8 @@ export default function Catalogue() {
             <div className="productName">
               <span>{currentProduct.product_display_name}</span>
               <div className="actions">
-                {Boolean(currentProduct.is_liked) && <Button className="transparent" type="icon"><Liked width="22px" height="22px" fill="#eb595f"/></Button>}
-                {!Boolean(currentProduct.is_liked) && <Button className="transparent" type="icon"><Like width="22px" height="22px"/></Button>}
+                {Boolean(currentProduct.is_liked) && <Button className="transparent" type="icon" clickHandler={likeProduct}><Liked width="22px" height="22px" fill="#eb595f"/></Button>}
+                {!Boolean(currentProduct.is_liked) && <Button className="transparent" type="icon" clickHandler={likeProduct}><Like width="22px" height="22px"/></Button>}
                 <Button className="transparent" type="icon"><Share width="20px" height="20px" /></Button>
               </div>
             </div>
