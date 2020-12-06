@@ -20,8 +20,9 @@ import { fetchStores, storeList, filters, setFilters } from "../store/catalogueR
 interface IStoreListProps { };
 
 const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
-
   const history = useHistory();
+  const dispatch = useDispatch();
+  
   const [isListMode, setListMode] = useState(true);
   const [isFilterOpen, setFilterState] = useState(false);
 
@@ -30,7 +31,6 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
   }
   const clickQR = () => history.push("/qrscreen");
 
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchStores());
