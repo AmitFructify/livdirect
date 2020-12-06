@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import "./ScreenQR.scss";
 import QrReader from 'react-qr-scanner';
 
@@ -10,7 +10,9 @@ import {
 } from '../store/appReducer';
 import {
   qrProduct,
-  fetchQRProduct
+  fetchQRProduct,
+  updateProduct,
+  fetchCartProducts
 } from '../store/catalogueReducer';
 
 import Button from "../components/Button";
@@ -29,8 +31,9 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
   const [result, setResult] = useState(null);
   const [productPopup, setProductPopup] = useState(false);
   const [delay] = useState(600);
+  const [scannedProduct, setScannedProduct] = useState({id:0,count:1});
 
-  let productDetail = useSelector(qrProduct);
+  const productDetail = useSelector(qrProduct);
 
   const handleScan = (data: any) => {
     if (data) {
@@ -49,12 +52,29 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
     setProductPopup(false);
   };
 
+  const updateProductHandler = (updateObj: {productId: number, request: any}) => {
+    setScannedProduct({
+      id: updateObj.productId,
+      count: updateObj.request.cart_item_count
+    });
+  };
+
   const addToCart = () => {
-    history.goBack();
-    dispatch(setToaster({message: "Item added to your cart", type: "info", isOpen: true}));
-    setTimeout(() => {
-      dispatch(setToaster({message: "", type: "", isOpen: false}));
-    },3000);
+    if (productDetail && scannedProduct.count) {
+      dispatch(updateProduct({productId: productDetail.id, request: {cart_item_count: productDetail.cart_item_count + scannedProduct.count, in_cart: true}})).then(()=>{
+        dispatch(fetchCartProducts());
+      });
+      history.goBack();
+      dispatch(setToaster({message: "Item added to your cart", type: "info", isOpen: true}));
+      setTimeout(() => {
+        dispatch(setToaster({message: "", type: "", isOpen: false}));
+      },3000);
+    } else {
+      dispatch(setToaster({message: "Please add Product", type: "error", isOpen: true}));
+      setTimeout(() => {
+        dispatch(setToaster({message: "", type: "", isOpen: false}));
+      },3000);
+    }
   };
 
 
@@ -78,12 +98,15 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
             <span>Product Detail</span>
         </div>
 
+        {productDetail && <Fragment>
         <div className="scroll">
+          <CartCard product={{...productDetail,cart_item_count :scannedProduct.count}} updateProduct={updateProductHandler}/>
         </div>
 
         <div className="footer">
           <Button className="primary" clickHandler={addToCart}>Add to Cart</Button>
         </div>
+        </Fragment>}
       </div>
     </div>
   );
