@@ -25,6 +25,8 @@ import { ReactComponent as Liked } from '../icons/liked.svg';
 import { ReactComponent as Info } from '../icons/info.svg';
 import { ReactComponent as Cart } from '../icons/cart.svg';
 import { ReactComponent as Rightarrow } from '../icons/rightarrow.svg';
+import { ReactComponent as Downarrow } from '../icons/downarrow.svg';
+import { ReactComponent as Uparrow } from '../icons/uparrow.svg';
 
 export default function Catalogue() {
   const history = useHistory();
@@ -102,7 +104,7 @@ export default function Catalogue() {
             <div className="productColors">
               <div className="colorHeading">
                 <span className="label">Upholstery:</span>
-                <span className="value">Caribbean turquoise</span>
+                <span className="value">{currentProduct.color}</span>
               </div>
               <div className="colors">
                 <div className="color"><div style={{ backgroundColor: "#044e51" }}></div></div>
@@ -133,7 +135,7 @@ export default function Catalogue() {
           <div className="collapsibles">
             <div className="collapsible">
               <div className="heading open">
-                <span>Description</span><Button type="icon" className="transparent"><Icon type="downArrow" /></Button>
+                <span>Description</span><Button type="icon" className="transparent"><Uparrow width="12px" height="12px"/></Button>
               </div>
               <div className="content">
                 <p>{currentProduct.description}</p>
@@ -141,22 +143,22 @@ export default function Catalogue() {
             </div>
             <div className="collapsible">
               <div className="heading">
-                <span>Product Information</span><Button type="icon" className="transparent"><Icon type="downArrow" /></Button>
+                <span>Product Information</span><Button type="icon" className="transparent"><Downarrow width="12px" height="12px"/></Button>
               </div>
             </div>
             <div className="collapsible">
               <div className="heading">
-                <span>Quality Promise</span><Button type="icon" className="transparent"><Icon type="downArrow" /></Button>
+                <span>Quality Promise</span><Button type="icon" className="transparent"><Downarrow width="12px" height="12px"/></Button>
               </div>
             </div>
             <div className="collapsible">
               <div className="heading">
-                <span>Category Notes</span><Button type="icon" className="transparent"><Icon type="downArrow" /></Button>
+                <span>Category Notes</span><Button type="icon" className="transparent"><Downarrow width="12px" height="12px"/></Button>
               </div>
             </div>
             <div className="collapsible">
               <div className="heading">
-                <span>Care and Cleaning</span><Button type="icon" className="transparent"><Icon type="downArrow" /></Button>
+                <span>Care and Cleaning</span><Button type="icon" className="transparent"><Downarrow width="12px" height="12px"/></Button>
               </div>
             </div>
           </div>

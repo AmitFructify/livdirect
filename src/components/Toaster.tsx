@@ -9,10 +9,12 @@ import {
 
 import Icon from "./Icon";
 
+import { ReactComponent as Tick } from '../icons/tick.svg';
+
 interface IToasterProps{
   isOpen: boolean;
   message: string;
-  type: "error" | "infor" | "warn" | "";
+  type: "error" | "info" | "warn" | "";
 }
 
 const Button: React.FC<IToasterProps> = (props: IToasterProps) => {
@@ -22,7 +24,10 @@ const Button: React.FC<IToasterProps> = (props: IToasterProps) => {
   };
 
   return (
-    <div className={`toaster ${props.isOpen?"open":""} ${props.type}`} onClick={closeToaster}><Icon type={props.type}/>{props.message}</div>
+    <div className={`toaster ${props.isOpen?"open":""} ${props.type}`} onClick={closeToaster}>
+      {props.type === "info" && <Tick width="16px" height="16px"/>}
+      {props.message}
+    </div>
   );
 }
  
