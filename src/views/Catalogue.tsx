@@ -38,7 +38,8 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
 
 
   const currentFilter = [...useSelector(filters)];
-  const storeItems = useSelector(storeList).map((store: any) =>
+  const stores = useSelector(storeList);
+  const storeItems = stores.map((store: any) =>
     <StoreCard store={store} key={store.id} />
   );
 
@@ -108,8 +109,8 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
               </Fragment>
             }
 
-            {!isListMode &&
-              <GoogleMap />
+            {(!isListMode && stores) &&
+              <GoogleMap markers={stores}/>
             }
           </div>
           <Button className="mapsFloat" clickHandler={changeListMode}>
