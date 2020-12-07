@@ -41,7 +41,7 @@ const Cart: React.FC<ICartProps> = (props: ICartProps) => {
   let totalCartValue = 0;
   const cartItems = currentCartProducts.map((cartItem: any)=> {
     totalCartValue += cartItem.prices* cartItem.cart_item_count;
-    return <CartCard product={cartItem} closeHandler={props.closeHandler} updateProduct={updateProductHandler} key={cartItem.id}/>
+    return <CartCard product={cartItem} closeHandler={props.closeHandler} updateProduct={updateProductHandler} key={cartItem.id+cartItem.cart_item_count}/>
   });
 
   const checkout = () => {
