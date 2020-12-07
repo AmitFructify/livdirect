@@ -9,7 +9,9 @@ import Button from "../components/Button";
 
 import {
   setCartState,
-  setToaster
+  setToaster,
+  newInCart,
+  setNewInCart
 } from '../store/appReducer';
 import {
   fetchProduct,
@@ -31,7 +33,7 @@ export default function Catalogue() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  let [isNewCartItem, setNewCartItem] = useState(false);
+  const isNewCartItem = useSelector(newInCart);
 
   let { id }: any = useParams();
   useEffect(() => {
@@ -44,7 +46,7 @@ export default function Catalogue() {
   let handleBackClick = () => history.goBack();
 
   const updateCartState = () => {
-    setNewCartItem(false);
+    dispatch(setNewInCart(false));
     dispatch(setCartState({ isCartOpen: true }));
   }
 
@@ -54,7 +56,7 @@ export default function Catalogue() {
         dispatch(fetchCartProducts());
     });
     dispatch(setToaster({ message: "Item added to your cart", type: "info", isOpen: true }));
-    setNewCartItem(true);
+    dispatch(setNewInCart(true));
     setTimeout(() => {
       dispatch(setToaster({ message: "", type: "", isOpen: false }));
     }, 3000);

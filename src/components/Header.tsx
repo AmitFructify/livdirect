@@ -3,7 +3,9 @@ import './Header.scss';
 
 import Button from "./Button";
 import {
-  setCartState
+  setCartState,
+  newInCart,
+  setNewInCart
 } from '../store/appReducer';
 import {
   searchString,
@@ -21,7 +23,11 @@ interface IHeaderProps {
 
 const Header: React.FC<IHeaderProps> = (props: IHeaderProps) => {
   const dispatch = useDispatch();
+
+  const isNewCartItem = useSelector(newInCart);
+
   const updateCartState = () => {
+    dispatch(setNewInCart(false));
     dispatch(setCartState({ isCartOpen: true }));
   }
 
@@ -32,8 +38,10 @@ const Header: React.FC<IHeaderProps> = (props: IHeaderProps) => {
   return (
     <div className="Header">
       <input type="text" placeholder="Search by products or stores" value={useSelector(searchString)} onChange={(e) => handleChange(e)} />
-      <Button type="icon" className="transparent" clickHandler={props.qrClickHandle}><QR width="22px" height="22px" /></Button>
-      <Button type="icon" className="transparent" clickHandler={updateCartState}><Cart width="22px" height="22px" /></Button>
+      <div className={`cart ${isNewCartItem?"newInCart":""}`}>
+        <Button type="icon" className="transparent" clickHandler={props.qrClickHandle}><QR width="22px" height="22px" /></Button>
+        <Button type="icon" className="transparent" clickHandler={updateCartState}><Cart width="22px" height="22px" /></Button>
+      </div>
     </div>
   );
 }

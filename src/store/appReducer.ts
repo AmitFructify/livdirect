@@ -6,7 +6,8 @@ interface AppState {
     isOpen: boolean;
     message: string;
     type: string;
-  }
+  },
+  newInCart: boolean;
 }
   
 const initialState: AppState = {
@@ -15,7 +16,8 @@ const initialState: AppState = {
     isOpen: false,
     message: "",
     type: ""
-  }
+  },
+  newInCart: false
 }
   
 const appSlice = createSlice({
@@ -29,13 +31,18 @@ const appSlice = createSlice({
     setToaster: (state, action: PayloadAction<any>) => {
       state.toaster = action.payload;
       return state;
+    },
+    setNewInCart: (state, action: PayloadAction<any>) => {
+      state.newInCart = action.payload;
+      return state;
     }
   },
 });
 
 export const isCartOpen = (state: any) => state.app.isCartOpen;
 export const toaster = (state: any) => state.app.toaster;
+export const newInCart = (state: any) => state.app.newInCart;
 
-export const { setCartState, setToaster } = appSlice.actions;
+export const { setCartState, setToaster, setNewInCart } = appSlice.actions;
 
 export default appSlice.reducer;

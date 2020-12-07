@@ -6,7 +6,8 @@ import { useHistory } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  setToaster
+  setToaster,
+  setNewInCart
 } from '../store/appReducer';
 import {
   qrProduct,
@@ -64,6 +65,7 @@ const ScreenQR: React.FC<IScreenQRProps> = (props: IScreenQRProps) => {
       dispatch(updateProduct({productId: productDetail.id, request: {cart_item_count: productDetail.cart_item_count + scannedProduct.count, in_cart: true}})).then(()=>{
         dispatch(fetchCartProducts());
       });
+      dispatch(setNewInCart(true));
       history.goBack();
       dispatch(setToaster({message: "Item added to your cart", type: "info", isOpen: true}));
       setTimeout(() => {

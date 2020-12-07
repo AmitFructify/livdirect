@@ -27,6 +27,25 @@
             width: 2.2em;
             border-radius: 2em;
         }
+        .cart{
+            position: relative;
+            &::after{
+                content: "";
+                height: 0px;
+                width: 0px;
+                background: $primaryColor;
+                display: inline-block;
+                position: absolute;
+                border-radius: 9px;
+                top: -2px;
+                right: -2px;
+                transition: all 0.2s ease-in-out;
+            }
+            &.newInCart::after{
+                height: 11px;
+                width: 11px;
+            }
+        }
     }
     .detailFooter {
         display: flex;

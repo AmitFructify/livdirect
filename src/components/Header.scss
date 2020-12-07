@@ -15,4 +15,28 @@
         font-size: 1.07em;
         height: 1.3em;
     }
+
+    .cart{
+        position: relative;
+        display: flex;
+        .btn:first-child {
+            margin-right: 0.5em;
+        }
+        &::after{
+            content: "";
+            height: 0px;
+            width: 0px;
+            background: $primaryColor;
+            display: inline-block;
+            position: absolute;
+            border-radius: 9px;
+            top: -2px;
+            right: -2px;
+            transition: all 0.2s ease-in-out;
+        }
+        &.newInCart::after{
+            height: 11px;
+            width: 11px;
+        }
+    }
 }
