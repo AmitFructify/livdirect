@@ -60,9 +60,9 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
     <div className="Catalogue">
       <Header qrClickHandle={clickQR} />
       <div className="tabs">
-        <NavLink activeClassName="active" to={`/catalogue/stores`}>Physical Stores</NavLink>
-        <NavLink activeClassName="active" to={`/catalogue/products`}>Products</NavLink>
-        <NavLink activeClassName="active" to={`/catalogue/looks`}>Looks</NavLink>
+        <NavLink activeClassName="active" to={`/catalogue/stores`} >Physical Stores</NavLink>
+        <NavLink activeClassName="active" to={`/catalogue/products`} className='disabled-link'>Products</NavLink>
+        <NavLink activeClassName="active" to={`/catalogue/looks`} className='disabled-link'>Looks</NavLink>
       </div>
 
       <Switch>
