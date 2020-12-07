@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import "./ProductCard.scss";
 
@@ -20,8 +20,11 @@ interface IProductCardProps {
   };
 };
 
-const StoreCard:React.FC<IProductCardProps> = (props: IProductCardProps) => {
+let timer:number = 0;
+
+const StoreCard:React.FC<IProductCardProps> = React.memo((props: IProductCardProps) => {
   const history = useHistory();
+  const [isLiked, setIsLiked] = useState(Boolean(props.product.is_liked));
 
   let handleClick = (id: number) => {
     if (history.location.pathname.indexOf("productdetail") > -1) {
@@ -32,7 +35,12 @@ const StoreCard:React.FC<IProductCardProps> = (props: IProductCardProps) => {
   };
 
   const likeProduct = () => {
-    props.updateProduct({productId: props.product.id, request: {is_liked: !props.product.is_liked}});
+    setIsLiked(!isLiked);
+    
+    clearTimeout(timer);
+    timer = window.setTimeout(() => {
+      props.updateProduct({productId: props.product.id, request: {is_liked: !isLiked}});
+    }, 300);
   }
 
   return (
@@ -44,12 +52,12 @@ const StoreCard:React.FC<IProductCardProps> = (props: IProductCardProps) => {
         <div className="productType">{props.product.vendor_display_name}</div>
         <div className="productPrice">&#x20B9; {props.product.prices}</div>
         <div className="actions">
-          {Boolean(props.product.is_liked) && <Button className="transparent" type="icon" clickHandler={likeProduct}><Liked  width="18px" height="18px" fill="#eb595f"/></Button>}
-          {!Boolean(props.product.is_liked) && <Button className="transparent" type="icon" clickHandler={likeProduct}><Like  width="18px" height="18px"/></Button>}
+          {Boolean(isLiked) && <Button className="transparent" type="icon" clickHandler={likeProduct}><Liked  width="18px" height="18px" fill="#eb595f"/></Button>}
+          {!Boolean(isLiked) && <Button className="transparent" type="icon" clickHandler={likeProduct}><Like  width="18px" height="18px"/></Button>}
         </div>
       </div>
     </div>
   );
-}
+});
  
 export default StoreCard;
