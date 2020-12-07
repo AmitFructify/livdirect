@@ -31,7 +31,7 @@ interface ICartCardProps{
 
 let timer:number = 0;
 
-const CartCard: React.FC<ICartCardProps> = React.memo((props: ICartCardProps) => {
+const CartCard: React.FC<ICartCardProps> = (props: ICartCardProps) => {
   const history = useHistory();
   const [count, setCount] = useState(props.product.cart_item_count);
 
@@ -94,6 +94,6 @@ const CartCard: React.FC<ICartCardProps> = React.memo((props: ICartCardProps) =>
     </div>}
     </Fragment>
   );
-});
+};
  
 export default CartCard;

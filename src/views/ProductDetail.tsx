@@ -51,10 +51,10 @@ export default function Catalogue() {
   }
 
   const addToCart = () => {
-    dispatch(updateProduct({productId: currentProduct.id, request: {in_cart: true, cart_item_count: currentProduct.cart_item_count + 1}})).then(()=>{
-        dispatch(fetchProduct(id));
-        dispatch(fetchCartProducts());
-    });
+    dispatch(updateProduct({productId: currentProduct.id, request: {in_cart: true, cart_item_count: currentProduct.cart_item_count + 1}})).then(() => {
+      dispatch(fetchProduct(id));
+      dispatch(fetchCartProducts());
+  });
     dispatch(setToaster({ message: "Item added to your cart", type: "info", isOpen: true }));
     dispatch(setNewInCart(true));
     setTimeout(() => {

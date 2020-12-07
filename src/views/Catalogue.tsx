@@ -109,8 +109,8 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
               </Fragment>
             }
 
-            {(!isListMode && stores) &&
-              <GoogleMap markers={stores}/>
+            {(!isListMode) &&
+              <div className="mapWrapper"></div>
             }
           </div>
           <Button className="mapsFloat" clickHandler={changeListMode}>

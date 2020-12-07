@@ -22,7 +22,7 @@ interface IProductCardProps {
 
 let timer:number = 0;
 
-const StoreCard:React.FC<IProductCardProps> = React.memo((props: IProductCardProps) => {
+const StoreCard:React.FC<IProductCardProps> = (props: IProductCardProps) => {
   const history = useHistory();
   const [isLiked, setIsLiked] = useState(Boolean(props.product.is_liked));
 
@@ -58,6 +58,6 @@ const StoreCard:React.FC<IProductCardProps> = React.memo((props: IProductCardPro
       </div>
     </div>
   );
-});
+};
  
 export default StoreCard;
