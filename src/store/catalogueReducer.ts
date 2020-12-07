@@ -113,7 +113,9 @@ export const storeList = (state: any) => {
   let stores = state.catalogue.storeList;
   let searchInput = state.catalogue.searchString;
   if (searchInput) {
-    stores = stores.filter((store: any) => store.store_kind.toLowerCase().indexOf(searchInput.toLowerCase()) > -1);
+    stores = stores.filter((store: any) => {
+      return store.store_kind.toLowerCase().indexOf(searchInput.toLowerCase()) > -1 || store.display_name.toLowerCase().indexOf(searchInput.toLowerCase()) > -1;
+    });
   }
 
   if (state.catalogue.filters.includes("Sample Delivery")) {

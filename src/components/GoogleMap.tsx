@@ -5,7 +5,6 @@ import GoogleMapReact from 'google-map-react';
 
 import {ReactComponent as Marker} from '../icons/marker.svg';
  
-const AnyReactComponent = ({ text }: any) => <div className="mapMarker"><span><Marker width="25px" height="25px"/></span>{text}</div>;
 
 interface IGoogleMapProps{
   markers:any[]
@@ -13,16 +12,15 @@ interface IGoogleMapProps{
 
 const GoogleMap: React.FC<IGoogleMapProps> = (props: IGoogleMapProps) => {
 
-  let latitude = Number(props.markers[0].latitude.substring(0, 9));
-  let longitude = Number(props.markers[0].longitude.substring(0, 9));
-
   let defaultProps = {
     center: {
-      lat: latitude,
-      lng: longitude
+      lat: 13.016403,
+      lng: 77.66099
     },
-    zoom: 12
+    zoom: 13
   };
+
+  const AnyReactComponent = ({ text }: any) => <div className="mapMarker"><span><Marker width="25px" height="25px"/></span>{text}</div>;
 
   const markers = props.markers.map((store:any)=>
       <AnyReactComponent key={store.id}
