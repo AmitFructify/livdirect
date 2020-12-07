@@ -13,7 +13,8 @@ import {
 import {
   storeById,
   storeProducts,
-  fetchStoreProducts
+  fetchStoreProducts,
+  updateProduct
 } from '../store/catalogueReducer';
 
 import { ReactComponent as QR } from '../icons/qr.svg';
@@ -49,6 +50,11 @@ export default function Catalogue() {
     dispatch(setCartState({ isCartOpen: true }));
   }
 
+  const updateProductHandler = (updateObj: {productId: number, request: any}) => {
+    dispatch(updateProduct(updateObj)).then(() => {
+      dispatch(fetchStoreProducts(id));
+    });
+  };
 
   const store = useSelector((state) => storeById(state, id));
   const currentStoreProducts = useSelector(storeProducts);
@@ -109,7 +115,7 @@ export default function Catalogue() {
               </div>
               <div className="productList">
                 {currentStoreProducts.map((currentProduct: any) => {
-                  return <ProductCard product={currentProduct} key={currentProduct.id} />
+                  return <ProductCard product={currentProduct} key={currentProduct.id} updateProduct={updateProductHandler}/>
                 })}
               </div>
             </div>}

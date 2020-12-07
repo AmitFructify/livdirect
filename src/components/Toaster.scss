@@ -7,15 +7,20 @@
     box-sizing: border-box;
     padding: 1em;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     background: #ffffff;
     box-shadow: 0px 0px 4px 0px #949494;
-    z-index: 2;
+    z-index: 99;
     left: -104vw;
     transition: all 0.3s ease-in-out;
     font-weight: 600;
     svg {
         margin-right: 0.5em;
+        margin-top: 0.1em;
+    }
+    span {
+        text-align: left;
+        line-height: 1.5em;
     }
     &.open {
         left: 0;

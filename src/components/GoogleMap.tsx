@@ -31,7 +31,7 @@ const GoogleMap: React.FC<IGoogleMapProps> = (props: IGoogleMapProps) => {
   );
 
   return (
-    <div style={{ height: '84%', width: '100%' }}>
+    <div style={{ height: '90%', width: '100%' }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyC7aNfixfJaQtMn6rXzKHPTV2Rs97Pezz8" }}
         defaultCenter={defaultProps.center}

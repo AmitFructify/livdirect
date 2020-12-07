@@ -8,6 +8,9 @@ import Button from "../components/Button";
 import CartCard from "../components/CartCard";
 
 import {
+  setToaster
+} from '../store/appReducer';
+import {
   fetchCartProducts,
   cartProducts,
   updateProduct
@@ -42,8 +45,15 @@ const Cart: React.FC<ICartProps> = (props: ICartProps) => {
   });
 
   const checkout = () => {
-    props.closeHandler();
-    history.push("/checkout");
+    if(currentCartProducts.length) {
+      props.closeHandler();
+      history.push("/checkout");
+    } else {
+      dispatch(setToaster({message: "Please add some items in Cart", type: "error", isOpen: true}));
+      setTimeout(() => {
+        dispatch(setToaster({message: "", type: "", isOpen: false}));
+      },3000);
+    }
   };
 
   return(

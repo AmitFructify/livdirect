@@ -6,7 +6,6 @@ import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from "../components/Button";
-import Icon from "../components/Icon";
 
 import {
   setCartState,

@@ -102,7 +102,7 @@ const Catalogue: React.FC<IStoreListProps> = (props: IStoreListProps) => {
                 }
               </div>
             </div>
-            <div className="heading">Stores near you</div>
+            {/* <div className="heading">Stores near you</div> */}
             {isListMode &&
               <Fragment>
                 {storeItems}

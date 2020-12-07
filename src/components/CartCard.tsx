@@ -66,9 +66,9 @@ const CartCard: React.FC<ICartCardProps> = (props: ICartCardProps) => {
         <div className="productCode">SKU: {props.product.sku}</div>
         <div className="productPrice">&#x20B9; {props.product.cart_item_count > 0?props.product.prices*props.product.cart_item_count:props.product.prices}<Info width="14px" height="14px"/></div>
         <div className="counter">
-          <Button className="transparent" type="icon" clickHandler={increaseCartItem}><Plus width="14px" height="14px"/></Button>
-          <span>{props.product.cart_item_count}</span>
           <Button className="transparent" type="icon" clickHandler={decreaseCartItem}><Minus width="14px" height="14px"/></Button>
+          <span>{props.product.cart_item_count}</span>
+          <Button className="transparent" type="icon" clickHandler={increaseCartItem}><Plus width="14px" height="14px"/></Button>
         </div>
       </div>
       <Button className="transparent" type="icon" clickHandler={() => props.updateProduct({productId: props.product.id, request: {cart_item_count: 0, in_cart: false}})}><Trash width="18px" height="18px"/></Button>

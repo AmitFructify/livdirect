@@ -46,11 +46,18 @@ const Checkout: React.FC<ICheckoutProps> = (props: ICheckoutProps) => {
   let payableAmount = totalCartValue - discount;
 
   const makePayment = () => {
-    dispatch(setToaster({message: "Your Payment was Successful", type: "info", isOpen: true}));
-    history.goBack();
-    setTimeout(() => {
-      dispatch(setToaster({message: "", type: "", isOpen: false}));
-    },3000);
+    if (currentCartProducts.length){
+      dispatch(setToaster({message: "Your Payment was Successfully<br/>Order Tracking Id is SHDFG3T7Q2N", type: "info", isOpen: true}));
+      history.goBack();
+      setTimeout(() => {
+        dispatch(setToaster({message: "", type: "", isOpen: false}));
+      },3000);
+    } else {
+      dispatch(setToaster({message: "Please add some items in Cart", type: "error", isOpen: true}));
+      setTimeout(() => {
+        dispatch(setToaster({message: "", type: "", isOpen: false}));
+      },3000);
+    }
   };
 
   return(
